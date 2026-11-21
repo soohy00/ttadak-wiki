@@ -8,7 +8,7 @@ export default {
   extends: DefaultTheme,
   Layout() {
     return h(DefaultTheme.Layout, null, {
-      'doc-before': () => h(AudienceSwitch, { inline: true }),
+      'doc-before': () => h(AudienceSwitch),
     })
   },
   enhanceApp({ app }) {

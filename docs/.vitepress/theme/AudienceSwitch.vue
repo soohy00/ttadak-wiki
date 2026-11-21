@@ -1,16 +1,23 @@
 <script setup lang="ts">
-import { onMounted, ref } from 'vue'
+import { nextTick, onMounted, ref, watch } from 'vue'
+import { useData, useRoute } from 'vitepress'
 
-// Which view is shown: developers read text, designers read wireframes and screen specs.
-// Kept in ?view= and localStorage so a shared link opens the same view.
-const props = defineProps<{ inline?: boolean }>()
+// Developer view (text) and designer view (wireframes, screen specs) of the same page.
+// Shown only on pages with `views: true` in frontmatter. Kept in ?view= and localStorage.
 type View = 'dev' | 'design'
+const { frontmatter } = useData()
+const route = useRoute()
 const view = ref<View>('dev')
 const KEY = 'ttadak-wiki-view'
 
+function sync() {
+  document.documentElement.dataset.audience = view.value
+  document.documentElement.classList.toggle('has-views', !!frontmatter.value.views)
+}
+
 function apply(v: View) {
   view.value = v
-  document.documentElement.dataset.audience = v
+  sync()
   try { localStorage.setItem(KEY, v) } catch {}
   const url = new URL(window.location.href)
   url.searchParams.set('view', v)
@@ -21,15 +28,15 @@ onMounted(() => {
   const fromUrl = new URL(window.location.href).searchParams.get('view')
   let saved: string | null = null
   try { saved = localStorage.getItem(KEY) } catch {}
-  const v = (fromUrl || saved) === 'design' ? 'design' : 'dev'
-  view.value = v
-  document.documentElement.dataset.audience = v
+  view.value = (fromUrl || saved) === 'design' ? 'design' : 'dev'
+  sync()
 })
+
+watch(() => route.path, () => nextTick(sync))
 </script>
 
 <template>
-  <div :class="['audience-switch', { inline: props.inline }]" role="group" aria-label="보기 전환">
-    <span v-if="props.inline" class="audience-switch-title">보기</span>
+  <div v-if="frontmatter.views" class="audience-switch" role="group" aria-label="보기 전환">
     <button type="button" :aria-pressed="view === 'dev'" @click="apply('dev')">개발자용</button>
     <button type="button" :aria-pressed="view === 'design'" @click="apply('design')">디자이너용</button>
   </div>

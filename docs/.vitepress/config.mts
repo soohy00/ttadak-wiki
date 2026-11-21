@@ -3,12 +3,10 @@ import container from 'markdown-it-container'
 
 // One source, two views: ::: dev ... ::: and ::: design ... ::: blocks.
 // The view switch in the nav bar shows one of them (see theme/AudienceSwitch.vue).
-function audienceBlock(md: any, name: 'dev' | 'design', label: string) {
+function audienceBlock(md: any, name: 'dev' | 'design') {
   md.use(container, name, {
     render(tokens: any[], idx: number) {
-      return tokens[idx].nesting === 1
-        ? `<div class="audience audience-${name}"><p class="audience-label">${label}</p>\n`
-        : '</div>\n'
+      return tokens[idx].nesting === 1 ? `<div class="audience audience-${name}">\n` : '</div>\n'
     },
   })
 }
@@ -20,11 +18,14 @@ export default defineConfig({
   base: '/ttadak-wiki/',
   cleanUrls: true,
   lastUpdated: true,
-  head: [['link', { rel: 'icon', href: '/ttadak-wiki/favicon.svg' }]],
+  head: [
+    ['link', { rel: 'icon', href: '/ttadak-wiki/favicon.svg' }],
+    ['link', { rel: 'stylesheet', crossorigin: '', href: 'https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css' }],
+  ],
   markdown: {
     config(md) {
-      audienceBlock(md, 'dev', '개발자용')
-      audienceBlock(md, 'design', '디자이너용')
+      audienceBlock(md, 'dev')
+      audienceBlock(md, 'design')
     },
   },
   themeConfig: {
