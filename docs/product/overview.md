@@ -18,10 +18,10 @@
 
 | 항목 | 결정 | 상세 |
 | --- | --- | --- |
-| 자료 업로드 | 텍스트 + 텍스트 PDF, 1회 20MB | [자료 업로드](../features/upload) |
-| 회차 구분 | AI 구분 기본 + 사용자가 순서·내용 조정 | [회차 구분](../features/session-split) |
-| 필사 | 따라 쓰기 → 빈칸 → 백지 | [필사](../features/transcription) |
-| 퀴즈 | 1사이클 도입 | [퀴즈](../features/quiz) |
+| 자료 업로드 | 텍스트 + 텍스트 PDF, 1회 20MB | [UPL 정책](../policy/upload) · [화면](../screens/upload) |
+| 회차 구분 | AI 구분 기본 + 사용자가 순서·내용 조정 | [SEC 정책](../policy/session-split) · [화면](../screens/session-split) |
+| 필사 | 따라 쓰기 → 빈칸 → 백지 | [TRN 정책](../policy/transcription) · [화면](../screens/transcription) |
+| 퀴즈 | 1사이클 도입 | [QIZ 정책](../policy/quiz) · [화면](../screens/quiz) |
 | 게이미피케이션 | 2단계 웹 고도화에서 도입 | — |
 
 ## 1사이클에서 하지 않는 것

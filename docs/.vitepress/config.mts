@@ -1,15 +1,4 @@
 import { defineConfig } from 'vitepress'
-import container from 'markdown-it-container'
-
-// One source, two views: ::: dev ... ::: and ::: design ... ::: blocks.
-// The view switch in the nav bar shows one of them (see theme/AudienceSwitch.vue).
-function audienceBlock(md: any, name: 'dev' | 'design') {
-  md.use(container, name, {
-    render(tokens: any[], idx: number) {
-      return tokens[idx].nesting === 1 ? `<div class="audience audience-${name}">\n` : '</div>\n'
-    },
-  })
-}
 
 export default defineConfig({
   lang: 'ko-KR',
@@ -22,17 +11,12 @@ export default defineConfig({
     ['link', { rel: 'icon', href: '/ttadak-wiki/favicon.svg' }],
     ['link', { rel: 'stylesheet', crossorigin: '', href: 'https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css' }],
   ],
-  markdown: {
-    config(md) {
-      audienceBlock(md, 'dev')
-      audienceBlock(md, 'design')
-    },
-  },
   themeConfig: {
     nav: [
       { text: '위키 읽는 법', link: '/guide/how-to-read' },
       { text: '서비스', link: '/product/overview' },
-      { text: '기능', link: '/features/upload' },
+      { text: '정책서', link: '/policy/upload' },
+      { text: '화면 설계서', link: '/screens/upload' },
       { text: '결정 기록', link: '/decisions/' },
     ],
     sidebar: [
@@ -52,13 +36,23 @@ export default defineConfig({
         ],
       },
       {
-        text: '기능 (1사이클)',
+        text: '정책서',
         items: [
-          { text: '자료 업로드', link: '/features/upload' },
-          { text: '회차 구분', link: '/features/session-split' },
-          { text: '필사', link: '/features/transcription' },
-          { text: '퀴즈', link: '/features/quiz' },
-          { text: '계정·설정', link: '/features/account' },
+          { text: 'UPL 자료 업로드', link: '/policy/upload' },
+          { text: 'SEC 회차 구분', link: '/policy/session-split' },
+          { text: 'TRN 필사', link: '/policy/transcription' },
+          { text: 'QIZ 퀴즈', link: '/policy/quiz' },
+          { text: 'ACC 계정·설정', link: '/policy/account' },
+        ],
+      },
+      {
+        text: '화면 설계서',
+        items: [
+          { text: '자료 업로드', link: '/screens/upload' },
+          { text: '회차 구분', link: '/screens/session-split' },
+          { text: '필사', link: '/screens/transcription' },
+          { text: '퀴즈', link: '/screens/quiz' },
+          { text: '계정·설정', link: '/screens/account' },
         ],
       },
       {
