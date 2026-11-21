@@ -1,0 +1,56 @@
+/* Paperlogy for Korean, Latin and numbers (OFL 1.1, see /fonts/OFL.txt) */
+@font-face { font-family: 'Paperlogy'; font-weight: 400; font-display: swap; src: url('/fonts/Paperlogy-4Regular.woff') format('woff'); }
+@font-face { font-family: 'Paperlogy'; font-weight: 600; font-display: swap; src: url('/fonts/Paperlogy-6SemiBold.woff') format('woff'); }
+@font-face { font-family: 'Paperlogy'; font-weight: 700; font-display: swap; src: url('/fonts/Paperlogy-7Bold.woff') format('woff'); }
+
+:root {
+  --vp-font-family-base: 'Paperlogy', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --vp-font-family-mono: 'Geist Mono', 'SF Mono', Menlo, Consolas, monospace;
+
+  /* one accent colour; text uses the darker shade (4.5:1 on white) */
+  --accent: #00b48a;
+  --accent-text: #007a5c;
+  --accent-soft: #e8f8f3;
+  --vp-c-brand-1: var(--accent-text);
+  --vp-c-brand-2: #00664d;
+  --vp-c-brand-3: var(--accent);
+  --vp-c-brand-soft: var(--accent-soft);
+}
+.dark {
+  --accent-text: #3fd6ad;
+  --accent-soft: rgba(0, 180, 138, 0.14);
+  --vp-c-brand-1: var(--accent-text);
+  --vp-c-brand-2: #6be2c1;
+  --vp-c-brand-soft: var(--accent-soft);
+}
+
+.vp-doc p, .vp-doc li, .vp-doc td { word-break: keep-all; line-height: 1.75; }
+.vp-doc th { font-weight: 600; }
+.vp-doc table { display: table; width: 100%; }
+.vp-doc td, .vp-doc th { vertical-align: top; }
+
+/* view switch */
+.audience-switch { display: inline-flex; gap: 4px; align-items: center; margin-right: 12px; }
+.audience-switch button {
+  font: inherit; font-size: 13px; font-weight: 600; padding: 4px 12px;
+  border: 1px solid var(--vp-c-divider); border-radius: 9999px;
+  color: var(--vp-c-text-2); background: transparent; cursor: pointer;
+}
+.audience-switch button[aria-pressed='true'] { color: #fff; background: var(--vp-c-brand-1); border-color: var(--vp-c-brand-1); }
+.dark .audience-switch button[aria-pressed='true'] { color: #0b1f19; }
+.audience-switch.inline { margin: 0 0 20px; }
+.audience-switch-title { font-size: 13px; color: var(--vp-c-text-2); margin-right: 4px; }
+@media (max-width: 767px) { .VPNavBar .audience-switch { display: none; } }
+
+/* audience blocks: only the chosen view is shown */
+.audience { border-left: 3px solid var(--accent); padding: 4px 0 4px 16px; margin: 16px 0; }
+.audience-label { font-size: 12px; font-weight: 600; color: var(--vp-c-brand-1); margin: 0 0 8px; }
+html:not([data-audience='design']) .audience-design { display: none; }
+html[data-audience='design'] .audience-dev { display: none; }
+
+/* status badge */
+.status { display: inline-block; font-size: 12px; font-weight: 600; padding: 1px 8px; border-radius: 9999px; border: 1px solid; vertical-align: middle; }
+.status-확정 { color: var(--vp-c-brand-1); background: var(--accent-soft); border-color: transparent; }
+.status-초안 { color: var(--vp-c-text-2); border-color: var(--vp-c-divider); }
+.status-미결정 { color: #b45309; background: #fef3c7; border-color: transparent; }
+.dark .status-미결정 { color: #fcd34d; background: rgba(245, 158, 11, 0.15); }
