@@ -3,7 +3,7 @@
 <div class="doc-info">
 <span>화면 ID: SCR-SEC</span>
 <span>정책: <a href="../policy/session-split">SEC 회차 구분 정책</a></span>
-<span>와이어프레임: 1920×1080 설계서 보드 (낮은 완성도, 2026-11-23)</span>
+<span>와이어프레임: 1920×1080 설계서 보드 (2026-11-23)</span>
 </div>
 
 <div class="todo-box">
@@ -23,29 +23,30 @@
 
 ## 3.1 회차 나누는 중 · SCR-SEC-01
 
-<a href="/ttadak-wiki/screens/scr-re-3-1.png" target="_blank"><img class="scr" src="/screens/scr-re-3-1.png" alt="화면 3-1"></a>
+<a href="/ttadak-wiki/screens/scr-hf-3-1.png" target="_blank"><img class="scr" src="/screens/scr-hf-3-1.png" alt="화면 3-1"></a>
 <p class="wf-cap">1920×1080 화면. 번호별 설명은 아래에 있어요. 이미지를 누르면 크게 열려요.</p>
 
 <ol class="mk-list">
-<li><b>진행 단계</b><span class="kind">Stepper</span>: 글자 읽기 → 회차 나누기 → 회차 확인 중 지금 단계를 표시합니다.</li>
-<li><b>안내 문구</b><span class="kind">Text</span>: 자료 이름·글자 수·보통 걸리는 시간입니다. 재요청 중이면 "다시 나누고 있어요"로 바뀝니다.</li>
-<li><b>목록 자리</b><span class="kind">Skeleton</span>: 회차 카드가 들어올 자리를 회색 막대로 표시합니다.<ul><li>→ 완료되면 3.2 회차 확인, 실패하면 3.3 나누기 실패로 이동합니다.</li></ul></li>
-<li><b>취소</b><span class="kind">Button</span>: 상태: default, hover, pressed<ul><li>→ 클릭할 경우 확인 모달 후 자료를 지우고 2.1 자료 넣기로 돌아갑니다.</li></ul></li>
+<li><b>상태 제목</b><span class="kind">Title</span>: 자료 이름·글자 수·보통 걸리는 시간을 함께 보여 줍니다. 자동 재요청 중이면 "다시 나누는 중"으로 바뀝니다(SEC-07).</li>
+<li><b>진행 단계</b><span class="kind">Stepper</span>: 글자 읽기 → 회차 나누기 → 회차 확인. 지금 단계만 진하게 표시합니다.</li>
+<li><b>목록 자리</b><span class="kind">Skeleton</span>: 결과 회차 카드가 들어올 자리입니다. 3.2와 같은 자리에 같은 크기로 둡니다.<ul><li>→ 완료되면 3.2 회차 확인, 실패하면 3.3 나누기 실패로 이동합니다.</li></ul></li>
+<li><b>나가기 안내</b><span class="kind">Caption</span>: 화면을 떠나도 처리는 계속됩니다. 내 자료에는 "회차 나누는 중" 카드로 보입니다(HOM-06).</li>
+<li><b>취소</b><span class="kind">Button</span>: 상태: default, hover, pressed<ul><li>→ 클릭할 경우 "자료를 지우고 처음으로 돌아갈까요?" 모달 후 2.1로 이동합니다.</li></ul></li>
 </ol>
 
-<p class="mk-note">관련 정책: UPL-07, SEC-01·07·10</p>
+<p class="mk-note">레퍼런스: 매니패스트 "자료 2개를 읽는 중" 진행 표시. 관련 정책: UPL-07, SEC-01·07·10, HOM-06</p>
 
 ## 3.2 회차 확인 · SCR-SEC-02
 
-<a href="/ttadak-wiki/screens/scr-re-3-2.png" target="_blank"><img class="scr" src="/screens/scr-re-3-2.png" alt="화면 3-2"></a>
+<a href="/ttadak-wiki/screens/scr-hf-3-2.png" target="_blank"><img class="scr" src="/screens/scr-hf-3-2.png" alt="화면 3-2"></a>
 <p class="wf-cap">1920×1080 화면. 번호별 설명은 아래에 있어요. 이미지를 누르면 크게 열려요.</p>
 
 <ol class="mk-list">
-<li><b>결과 제목</b><span class="kind">Text</span>: 나눈 회차 수를 보여 줍니다. 1개면 "자료가 짧아 1회차로 만들었어요"로 바뀝니다(SEC-08).</li>
+<li><b>결과 제목</b><span class="kind">Title</span>: 나눈 회차 수를 보여 줍니다. 1개면 "자료가 짧아 1회차로 만들었어요"로 바뀝니다(SEC-08).</li>
 <li><b>자료 요약</b><span class="kind">Text</span>: 자료 이름, 전체 글자 수, 전체 예상 시간입니다(SEC-13).</li>
-<li><b>회차 목록</b><span class="kind">Card List</span>: 회차마다 번호·제목·글자 수·예상 시간·첫 문장입니다. 카드를 클릭하면 본문을 펼쳐 미리 봅니다.<ul><li>⋮⋮·⋯의 동작은 3.2.A·B·C 시안 중 투표로 정합니다.</li><li>상태: default, expanded, editing</li></ul></li>
-<li><b>다시 나누기</b><span class="kind">Button</span>: 상태: default, hover, pressed, loading<ul><li>→ 클릭할 경우 "고친 내용은 사라져요" 확인 모달 후 3.1로 이동합니다.</li></ul></li>
-<li><b>필사 시작</b><span class="kind">Button</span>: 모든 회차를 빼면 disabled 상태입니다.<ul><li>상태: disabled, default, hover, pressed</li><li>→ 클릭할 경우 회차를 확정하고 4.2 따라 쓰기(1회차)로 이동합니다.</li></ul></li>
+<li><b>회차 카드</b><span class="kind">Card List</span>: 번호·제목·글자 수·예상 시간·첫 문장. 카드를 클릭하면 본문을 펼쳐 봅니다.<ul><li>고치는 방법(⋯)은 3.2.A·B·C 시안 중 투표로 정합니다.</li><li>상태: default, expanded</li></ul></li>
+<li><b>다시 나누기</b><span class="kind">Button</span>: 상태: default, hover, pressed, loading<ul><li>→ 클릭할 경우 "고친 내용은 사라져요" 모달 후 3.1로 이동합니다.</li></ul></li>
+<li><b>필사 시작</b><span class="kind">Button</span>: 화면의 주 버튼입니다. 모든 회차를 빼면 disabled입니다.<ul><li>→ 클릭할 경우 회차를 확정하고 4.1 회차 목록으로 이동합니다.</li></ul></li>
 </ol>
 
 <p class="mk-note">관련 정책: SEC-01·03·08·12·13</p>
@@ -56,43 +57,45 @@
 
 ### 3.2.A 회차 조정 시안 A · 목록에서 고치기 · SCR-SEC-03
 
-<a href="/ttadak-wiki/screens/scr-re-3-2-A.png" target="_blank"><img class="scr" src="/screens/scr-re-3-2-A.png" alt="화면 3-2-A"></a>
+<a href="/ttadak-wiki/screens/scr-hf-3-2-A.png" target="_blank"><img class="scr" src="/screens/scr-hf-3-2-A.png" alt="화면 3-2-A"></a>
 <p class="wf-cap">1920×1080 화면. 번호별 설명은 아래에 있어요. 이미지를 누르면 크게 열려요.</p>
 
 <ol class="mk-list">
-<li><b>끌기 손잡이</b><span class="kind">Drag Handle</span>: 카드를 끌어 순서를 바꿉니다. 놓으면 회차 번호를 다시 매깁니다. 처음 1회만 말풍선으로 안내합니다.<ul><li>상태: default, dragging</li></ul></li>
-<li><b>제목</b><span class="kind">Inline Text Field</span>: 제목을 클릭하면 바로 수정합니다(30자).<ul><li>상태: default, editing</li></ul></li>
-<li><b>더보기 메뉴</b><span class="kind">Menu</span>: 다음 회차와 합치기 / 둘로 나누기 / 필사에서 빼기입니다. 둘로 나누기를 고르면 카드가 펼쳐지고 문단 사이를 클릭해 나눌 위치를 고릅니다.</li>
-<li><b>뺀 회차</b><span class="kind">Card</span>: 흐리게 남기고 [되돌리기]를 노출합니다.</li>
+<li><b>끌기</b><span class="kind">Drag Handle</span>: 카드를 끌어 순서를 바꿉니다. 놓으면 회차 번호를 다시 매깁니다.<ul><li>상태: default, dragging</li></ul></li>
+<li><b>제목 고치기</b><span class="kind">Inline Text Field</span>: 제목을 클릭하면 그 자리에서 고칩니다. 1–30자, Enter로 저장.</li>
+<li><b>더보기 메뉴</b><span class="kind">Menu</span>: 다음 회차와 합치기 / 둘로 나누기 / 필사에서 빼기. 둘로 나누기는 카드가 펼쳐지고 문단 사이를 클릭해 나눌 곳을 고릅니다.</li>
+<li><b>뺀 회차</b><span class="kind">Card</span>: 흐리게 남기고 [되돌리기]를 노출합니다. 모두 빼면 "필사할 회차를 하나 이상 남겨 주세요".</li>
+<li><b>처음 안내</b><span class="kind">Tooltip</span>: 끌기는 보기 전에는 모르는 동작이라 처음 한 번만 말풍선으로 알립니다.</li>
 </ol>
 
-<p class="mk-note">레퍼런스: 뤼튼 PPT 초안 목차 선정(2025-06). 관련 정책: SEC-02·11·12·14</p>
+<p class="mk-note">레퍼런스: 뤼튼 PPT 초안 목차 편집, 노션 블록 끌기. 관련 정책: SEC-02·11·12·14</p>
 
 ### 3.2.B 회차 조정 시안 B · 원문에서 선 옮기기 · SCR-SEC-03
 
-<a href="/ttadak-wiki/screens/scr-re-3-2-B.png" target="_blank"><img class="scr" src="/screens/scr-re-3-2-B.png" alt="화면 3-2-B"></a>
+<a href="/ttadak-wiki/screens/scr-hf-3-2-B.png" target="_blank"><img class="scr" src="/screens/scr-hf-3-2-B.png" alt="화면 3-2-B"></a>
 <p class="wf-cap">1920×1080 화면. 번호별 설명은 아래에 있어요. 이미지를 누르면 크게 열려요.</p>
 
 <ol class="mk-list">
-<li><b>회차 목록</b><span class="kind">Side List</span>: 클릭하면 원문의 해당 위치로 이동합니다. 끌어서 순서를 바꿉니다.<ul><li>상태: default, selected</li></ul></li>
-<li><b>경계선</b><span class="kind">Divider Handle</span>: 끌어서 다른 문단 사이로 옮겨 범위를 조정합니다. ✎ 제목 수정, × 경계선 지우기(앞 회차와 합치기).<ul><li>상태: default, dragging</li></ul></li>
-<li><b>나누기 자리</b><span class="kind">Hover Action</span>: 문단 사이에 마우스를 올리면 노출됩니다. 클릭하면 새 경계선을 만듭니다.</li>
+<li><b>회차 목록</b><span class="kind">Side List</span>: 클릭하면 원문의 그 회차 위치로 이동합니다.<ul><li>상태: default, selected</li></ul></li>
+<li><b>경계선</b><span class="kind">Divider Handle</span>: 끌어서 다른 문단 사이로 옮기면 앞뒤 회차 범위가 바뀝니다. 이름표를 클릭하면 제목을 고칩니다. 선을 지우면 앞 회차와 합쳐집니다.<ul><li>상태: default, dragging</li></ul></li>
+<li><b>나누기 자리</b><span class="kind">Hover Action</span>: 문단 사이에 마우스를 올리면 나타납니다. 클릭하면 새 경계선을 만듭니다.</li>
+<li><b>처음 안내</b><span class="kind">Tooltip</span>: 처음 한 번만 노출합니다.</li>
 </ol>
 
-<p class="mk-note">레퍼런스: 클래스101 커리큘럼(왼쪽 목록, 2026-02). 경계선 끌기는 같은 사례를 찾지 못했어요. 관련 정책: SEC-02·11·12·14</p>
+<p class="mk-note">레퍼런스: 클래스101 커리큘럼(왼쪽 목록). 경계선 끌기는 같은 사례를 찾지 못했어요. 관련 정책: SEC-02·11·12·14</p>
 
 ### 3.2.C 회차 조정 시안 C · 회차 수로 다시 나누기 · SCR-SEC-03
 
-<a href="/ttadak-wiki/screens/scr-re-3-2-C.png" target="_blank"><img class="scr" src="/screens/scr-re-3-2-C.png" alt="화면 3-2-C"></a>
+<a href="/ttadak-wiki/screens/scr-hf-3-2-C.png" target="_blank"><img class="scr" src="/screens/scr-hf-3-2-C.png" alt="화면 3-2-C"></a>
 <p class="wf-cap">1920×1080 화면. 번호별 설명은 아래에 있어요. 이미지를 누르면 크게 열려요.</p>
 
 <ol class="mk-list">
-<li><b>회차 수 선택</b><span class="kind">Segmented Control</span>: 자동 / 2–[최대: ?]개 중 고릅니다. 진입 시 AI가 정한 수가 선택된 상태입니다.<ul><li>상태: default, selected</li></ul></li>
-<li><b>다시 나누기</b><span class="kind">Button</span>: 회차 수를 바꾸기 전에는 disabled 상태입니다.<ul><li>→ 클릭할 경우 고른 회차 수로 3.1 회차 나누는 중으로 이동합니다.</li></ul></li>
-<li><b>제목 수정</b><span class="kind">Icon Button</span>: 범위는 직접 고치지 않고 순서 끌기와 제목 수정만 합니다.</li>
+<li><b>회차 수</b><span class="kind">Segmented Control</span>: 자동 / 2–[최대: ?]개. 진입 시 AI가 정한 수가 선택된 상태입니다.<ul><li>상태: default, selected</li></ul></li>
+<li><b>다시 나누기</b><span class="kind">Button</span>: 회차 수를 바꾸기 전에는 disabled입니다.<ul><li>→ 클릭할 경우 고른 수로 3.1 회차 나누는 중으로 이동합니다.</li></ul></li>
+<li><b>제목 고치기</b><span class="kind">Icon Button</span>: 범위는 직접 고치지 않고 제목만 고칩니다.</li>
 </ol>
 
-<p class="mk-note">레퍼런스: 뤼튼 PPT 초안 분량 선택(2025-06). 관련 정책: SEC-07·14·16</p>
+<p class="mk-note">레퍼런스: 뤼튼 PPT 초안 분량 선택. 관련 정책: SEC-07·14·16</p>
 
 ### 시안 비교
 
@@ -106,13 +109,13 @@
 
 ## 3.3 나누기 실패 · SCR-SEC-04
 
-<a href="/ttadak-wiki/screens/scr-re-3-3.png" target="_blank"><img class="scr" src="/screens/scr-re-3-3.png" alt="화면 3-3"></a>
+<a href="/ttadak-wiki/screens/scr-hf-3-3.png" target="_blank"><img class="scr" src="/screens/scr-hf-3-3.png" alt="화면 3-3"></a>
 <p class="wf-cap">1920×1080 화면. 번호별 설명은 아래에 있어요. 이미지를 누르면 크게 열려요.</p>
 
 <ol class="mk-list">
-<li><b>실패 안내</b><span class="kind">Text</span>: 자동 재요청(1회)까지 실패했을 때 노출합니다.</li>
-<li><b>나누지 않고 시작</b><span class="kind">Button</span>: 상태: default, hover, pressed<ul><li>→ 클릭할 경우 자료 전체를 1회차로 만들고 3.2 회차 확인으로 이동합니다.</li></ul></li>
-<li><b>다시 나누기</b><span class="kind">Button</span>: 상태: default, hover, pressed, loading<ul><li>→ 클릭할 경우 3.1 회차 나누는 중으로 이동합니다.</li></ul></li>
+<li><b>실패 안내</b><span class="kind">Title</span>: 자동 재요청(1회)까지 실패했을 때 노출합니다.</li>
+<li><b>나누지 않고 시작</b><span class="kind">Button</span>: 상태: default, hover, pressed<ul><li>→ 클릭할 경우 자료 전체를 1회차로 만들고 3.2로 이동합니다.</li></ul></li>
+<li><b>다시 나누기</b><span class="kind">Button</span>: 상태: default, hover, pressed, loading<ul><li>→ 클릭할 경우 3.1로 이동합니다.</li></ul></li>
 </ol>
 
 <p class="mk-note">관련 정책: SEC-07·08·09·10</p>

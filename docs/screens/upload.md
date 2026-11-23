@@ -3,12 +3,12 @@
 <div class="doc-info">
 <span>화면 ID: SCR-UPL</span>
 <span>정책: <a href="../policy/upload">UPL 자료 업로드 정책</a></span>
-<span>와이어프레임: 1920×1080 설계서 보드 (낮은 완성도, 2026-11-23)</span>
+<span>와이어프레임: 1920×1080 설계서 보드 (2026-11-23)</span>
 </div>
 
 <div class="todo-box">
 <p class="todo-title">이 페이지에서 할 일</p>
-<ol><li>(전원) 화면 문구가 두 줄(끌어다 놓기 사용법, 형식·용량)로 충분한지 확인해 주세요.</li><li>(PD) 세그먼트 탭과 업로드 영역 배치를 확인해 주세요.</li><li>(FE) 끌어다 놓기, 파일 검사, 여러 파일을 놓았을 때 처리가 구현 가능한지 확인해 주세요.</li><li>(전원) 2.2 오류 상황에 빠진 경우가 없는지 확인해 주세요.</li></ol>
+<ol><li>(전원) 화면 문구가 필요한 것만 남았는지 확인해 주세요(화면 설계 기준 8. 화면 문구).</li><li>(PD) 세그먼트 탭과 업로드 영역 배치를 확인해 주세요.</li><li>(FE) 끌어다 놓기, 파일 검사, 여러 파일을 놓았을 때 처리가 구현 가능한지 확인해 주세요.</li><li>(전원) 2.2.2 오류 상황에 빠진 경우가 없는지 확인해 주세요.</li></ol>
 <p class="todo-foot">확인한 뒤 <a href="https://github.com/soohy00/ttadak-wiki/issues/new?title=%5B%EC%9E%90%EB%A3%8C%20%EC%97%85%EB%A1%9C%EB%93%9C%20%ED%99%94%EB%A9%B4%5D%20" target="_blank">의견 남기기</a>로 남겨 주세요. 질문·피드백 방법은 4차 회의에서 확정해요.</p>
 </div>
 
@@ -51,18 +51,31 @@
 
 <p class="mk-note">레퍼런스: 구글 번역 텍스트, 뤼튼. 관련 정책: UPL-01·09·11·13·15</p>
 
-## 2.2 파일 선택됨 · 오류 · SCR-UPL-03
+## 2.2.1 파일 선택됨 · SCR-UPL-03
 
-<a href="/ttadak-wiki/screens/scr-re-2-2.png" target="_blank"><img class="scr" src="/screens/scr-re-2-2.png" alt="화면 2-2"></a>
+<a href="/ttadak-wiki/screens/scr-hf-2-2-1.png" target="_blank"><img class="scr" src="/screens/scr-hf-2-2-1.png" alt="화면 2-2-1"></a>
 <p class="wf-cap">1920×1080 화면. 번호별 설명은 아래에 있어요. 이미지를 누르면 크게 열려요.</p>
 
 <ol class="mk-list">
-<li><b>파일 줄</b><span class="kind">List Item</span>: 선택한 파일의 이름·용량·쪽 수입니다. 올리는 중에는 진행 막대를 노출합니다.<ul><li>상태: 선택됨, 올리는 중</li><li>→ [바꾸기]를 클릭할 경우 업로드 영역으로 돌아갑니다.</li></ul></li>
-<li><b>자료 이름</b><span class="kind">Text Field</span>: 파일 이름(확장자 제외)으로 자동 입력되며 수정할 수 있습니다.</li>
-<li><b>오류 안내</b><span class="kind">Inline Alert</span>: 형식·용량·스캔 PDF·추출 실패 시 업로드 영역 바로 아래에 노출합니다. 새 파일을 고르면 사라집니다.<ul><li>문구 전체는 UPL 정책서 "예외·에러 메시지" 표를 따릅니다.</li></ul></li>
+<li><b>파일 줄</b><span class="kind">List Item</span>: 고른 파일의 이름·용량·쪽 수를 보여 줍니다. 올리는 동안에는 오른쪽에 진행 막대를 노출합니다.<ul><li>상태: 올리는 중, 선택됨</li><li>→ [바꾸기]를 클릭할 경우 2.1.1 업로드 영역으로 돌아갑니다.</li></ul></li>
+<li><b>자료 이름</b><span class="kind">Text Field</span>: 파일 이름(확장자 제외)으로 자동 입력됩니다. 1–30자.<ul><li>상태: default, focus, filled, error</li></ul></li>
+<li><b>회차 나누기</b><span class="kind">Button</span>: 화면의 주 버튼입니다.<ul><li>상태: default, hover, pressed, loading</li><li>→ 클릭할 경우 글자를 읽고 3.1 회차 나누는 중으로 이동합니다.</li></ul></li>
 </ol>
 
-<p class="mk-note">관련 정책: UPL-02·03·05·06·08·10·11·12·17</p>
+<p class="mk-note">관련 정책: UPL-03·05·07·11</p>
+
+## 2.2.2 오류 · SCR-UPL-03
+
+<a href="/ttadak-wiki/screens/scr-hf-2-2-2.png" target="_blank"><img class="scr" src="/screens/scr-hf-2-2-2.png" alt="화면 2-2-2"></a>
+<p class="wf-cap">1920×1080 화면. 번호별 설명은 아래에 있어요. 이미지를 누르면 크게 열려요.</p>
+
+<ol class="mk-list">
+<li><b>업로드 영역</b><span class="kind">Drop Zone</span>: 검사에 실패하면 테두리를 진하게 바꾸고 바로 다른 파일을 받을 수 있게 둡니다.<ul><li>상태: error</li></ul></li>
+<li><b>오류 안내</b><span class="kind">Inline Alert</span>: 제목은 무엇을 못 했는지, 본문은 어떻게 하면 되는지 한 줄씩 씁니다. 새 파일을 고르면 사라집니다.<ul><li>20MB 초과: "파일이 너무 커요" / "한 번에 20MB까지 올릴 수 있어요."</li><li>받지 않는 형식: "이 형식은 올릴 수 없어요" / "txt·md·docx 파일과 글자로 된 PDF만 올릴 수 있어요."</li><li>PPT·hwp: "PPT는 바로 올릴 수 없어요" / "PDF로 저장한 뒤 올려 주세요."</li><li>스캔 PDF: 화면 예시</li><li>추출 실패: "글자를 읽지 못했어요" / "파일을 다시 올려 주세요."</li></ul></li>
+<li><b>회차 나누기</b><span class="kind">Button</span>: 오류 상태에서는 disabled입니다.</li>
+</ol>
+
+<p class="mk-note">관련 정책: UPL-01·02·03·06·08·12·17. 문구는 UPL 정책서 "예외·에러 메시지"와 맞춥니다.</p>
 
 ## 애니메이션
 
