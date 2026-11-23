@@ -12,38 +12,38 @@
 2. 고른 파일은 바로 형식·용량을 검사한다. 통과하면 파일 줄과 자료 이름이 보인다. (UPL-05·11)
 3. '회차 나누기'를 누르면 텍스트를 추출하고 [회차 구분 화면](./session-split)으로 이동한다. (UPL-07)
 
+- 화면 안 문구는 써 보기 전에는 모를 사용법(끌어다 놓기)과 형식·용량 한 줄만 둡니다. 예외 안내는 그 상황이 생겼을 때만 보여 줍니다.
 - 와이어프레임은 배치와 상태만 정합니다. 색·글꼴·간격은 디자이너의 파운데이션을 따릅니다.
 - 이 화면의 배치는 보편 패턴을 따릅니다([결정 원칙](../product/principles)). 근거 레퍼런스는 노션 시안 카드에 있습니다.
 
-## 2.1.1 자료 넣기 · 파일 올리기 · SCR-UPL-01
+## 2.1.1 자료 넣기 · 파일 · SCR-UPL-01
 
-<a href="/ttadak-wiki/screens/re-2-1-1.png" target="_blank"><img src="/screens/re-2-1-1.png" alt="2.1.1 자료 넣기 · 파일 올리기"></a>
+<a href="/ttadak-wiki/screens/hf-2-1-1.png" target="_blank"><img src="/screens/hf-2-1-1.png" alt="2.1.1 자료 넣기 · 파일"></a>
 <p class="wf-cap">1920×1080 화면 설계서 보드. 이미지를 누르면 원본 크기로 열려요.</p>
 
 | 번호 | 요소 | 종류 | 설명 |
 | --- | --- | --- | --- |
-| 1 | 화면 제목 | Text | 화면 제목과 안내 문구입니다. 고정 문구입니다. |
-| 2 | 업로드 방식 | Tab | 파일 올리기 / 텍스트 붙여넣기 2개입니다. 진입 시 파일 올리기가 선택된 상태입니다. 탭을 바꿔도 각 탭의 입력 내용은 유지됩니다. 상태: default, hover, selected |
-| 3 | 업로드 영역 | Drop Zone | 파일을 끌어다 놓으면 형식·용량 검사를 시작합니다. 영역을 클릭해도 파일 선택 창이 열립니다. 2개 이상 놓으면 첫 파일만 받고 "자료는 한 번에 하나씩 올릴 수 있어요."를 노출합니다. 상태: default, drag over, 검사 중, error → 검사를 통과하면 2.2 파일 선택됨 상태로 바뀝니다. |
-| 4 | 파일 고르기 | Button | 파일 선택 창을 엽니다. 선택 창에는 txt·md·docx·pdf만 노출됩니다. 상태: default, hover, pressed |
-| 5 | 형식·용량 안내 | Text | 받는 형식과 최대 용량(20MB)을 항상 노출합니다. PPT·hwp는 PDF로 저장하도록 안내합니다. |
-| 6 | 회차 나누기 | Button | 파일이 선택되기 전에는 disabled 상태입니다. 상태: disabled, default, hover, pressed, loading → 클릭할 경우 텍스트 추출을 시작하고 3.1 회차 나누는 중 화면으로 이동합니다. |
+| 1 | 자료 넣는 방법 | Segmented Tab | 파일 / 텍스트 2개. 진입 시 파일이 선택된 상태입니다. 탭을 바꿔도 각 탭의 입력은 유지됩니다. 상태: default, selected |
+| 2 | 업로드 영역 | Drop Zone | 파일을 끌어다 놓으면 형식·용량 검사를 시작합니다. 영역 아무 곳이나 클릭해도 파일 선택 창이 열립니다. 파일을 2개 이상 놓으면 첫 파일만 받고 "한 번에 하나씩 올릴 수 있어요" 토스트를 노출합니다. 상태: default, drag over(테두리 실선·배경 진하게), 검사 중, error → 검사를 통과하면 2.2 파일 선택됨 상태로 바뀝니다. |
+| 3 | 파일 선택 | Button | OS 파일 선택 창을 엽니다. PDF·DOCX·TXT·MD 파일만 보입니다. 상태: default, hover, pressed |
+| 4 | 형식·용량 | Caption | 받는 형식과 최대 용량을 한 줄로 노출합니다. PPT·한글(hwp) 안내는 미리 쓰지 않고, 해당 파일을 올렸을 때 오류 문구로 안내합니다(2.2). |
+| 5 | 회차 나누기 | Button | 파일이 선택되기 전에는 disabled입니다. 상태: disabled, default, hover, pressed, loading → 클릭할 경우 3.1 회차 나누는 중으로 이동합니다. |
 
-- 관련 정책: UPL-01·03·05·06·09·10·17
+- 레퍼런스: 구글 번역 문서 탭, Smallpdf, iLovePDF, TinyPNG, 브루. 관련 정책: UPL-01·03·05·06·09·10·17
 
-## 2.1.2 자료 넣기 · 텍스트 붙여넣기 · SCR-UPL-02
+## 2.1.2 자료 넣기 · 텍스트 · SCR-UPL-02
 
-<a href="/ttadak-wiki/screens/re-2-1-2.png" target="_blank"><img src="/screens/re-2-1-2.png" alt="2.1.2 자료 넣기 · 텍스트 붙여넣기"></a>
+<a href="/ttadak-wiki/screens/hf-2-1-2.png" target="_blank"><img src="/screens/hf-2-1-2.png" alt="2.1.2 자료 넣기 · 텍스트"></a>
 <p class="wf-cap">1920×1080 화면 설계서 보드. 이미지를 누르면 원본 크기로 열려요.</p>
 
 | 번호 | 요소 | 종류 | 설명 |
 | --- | --- | --- | --- |
-| 1 | 텍스트 입력 | Text Area | 외울 내용을 붙여넣거나 직접 입력합니다. 입력 전 placeholder "외울 내용을 붙여넣어 주세요"를 노출합니다. 상태: default, focus, filled, error |
-| 2 | 글자 수 | Text | 입력할 때마다 갱신합니다. 최대 글자 수를 넘으면 error 상태로 바뀝니다. 최대 글자 수는 AI 모델 결정 후 확정합니다(UPL-15). |
-| 3 | 자료 이름 | Text Field | 첫 줄 앞 30자로 자동 입력되며 수정할 수 있습니다. 최대 30자입니다. 상태: default, focus, filled |
-| 4 | 회차 나누기 | Button | 입력 내용이 없으면 disabled 상태입니다. 상태: disabled, default, hover, pressed, loading → 클릭할 경우 줄바꿈·공백을 정리한 뒤 3.1 회차 나누는 중 화면으로 이동합니다. |
+| 1 | 텍스트 입력 | Text Area | 진입 시 커서가 들어간 상태입니다. placeholder "외울 내용을 붙여넣으세요" 상태: default, focus, filled, error |
+| 2 | 글자 수 | Counter | 입력할 때마다 갱신합니다. 최대 글자 수를 넘으면 "최대 N자까지 넣을 수 있어요"로 바뀝니다(UPL-15, AI 모델 결정 후). |
+| 3 | 자료 이름 | Text Field | 첫 줄 앞 30자로 자동 입력되며 수정할 수 있습니다. 최대 30자. 상태: default, focus, filled |
+| 4 | 회차 나누기 | Button | 입력이 없으면 disabled입니다. 상태: disabled, default, hover, pressed, loading → 클릭할 경우 줄바꿈·공백을 정리하고 3.1 회차 나누는 중으로 이동합니다. |
 
-- 관련 정책: UPL-01·09·11·13·15
+- 레퍼런스: 구글 번역 텍스트, 뤼튼. 관련 정책: UPL-01·09·11·13·15
 
 ## 2.2 파일 선택됨 · 오류 · SCR-UPL-03
 
