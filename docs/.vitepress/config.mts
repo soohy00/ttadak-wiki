@@ -25,6 +25,7 @@ export default defineConfig({
         items: [
           { text: '위키 읽는 법', link: '/guide/how-to-read' },
           { text: '갱신 기록', link: '/guide/changelog' },
+          { text: '화면 설계 기준', link: '/guide/wireframe-standard' },
         ],
       },
       {
@@ -33,6 +34,7 @@ export default defineConfig({
           { text: '서비스 개요', link: '/product/overview' },
           { text: '문제 정의·페르소나', link: '/product/problem' },
           { text: '세부 경험 결정 원칙', link: '/product/principles' },
+          { text: '전체 흐름·화면 목록', link: '/product/flow' },
         ],
       },
       {
