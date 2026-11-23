@@ -3,7 +3,7 @@
 <div class="doc-info">
 <span>화면 ID: SCR-SEC</span>
 <span>정책: <a href="../policy/session-split">SEC 회차 구분 정책</a></span>
-<span>와이어프레임: 1사이클 시안 (무채색, 2026-11-23). 조정 방법은 시안 A·B·C 투표 중</span>
+<span>와이어프레임: 1920×1080 설계서 보드 (낮은 완성도, 2026-11-23)</span>
 </div>
 
 ## 사용자 흐름
@@ -15,136 +15,78 @@
 - 와이어프레임은 배치와 상태만 정합니다. 색·글꼴·간격은 디자이너의 파운데이션을 따릅니다.
 - 화면 속 자료(한국사 요약노트)와 숫자는 예시입니다.
 
-## SCR-SEC-01 회차 나누는 중
+## 3.1 회차 나누는 중 · SCR-SEC-01
 
-<div class="wf">
-  <div class="wf-bar"><b>따닥</b><span>내 자료</span><span class="sp"></span><span class="wf-dot"></span></div>
-  <div class="wf-body">
-    <div class="wf-steps"><i class="wf-n">1</i><span class="done">✓ 글자 읽기</span><span>—</span><span class="on">회차 나누기</span><span>—</span><span>회차 확인</span></div>
-    <div class="wf-center">
-      <div class="wf-spin"></div>
-      <p class="wf-h"><i class="wf-n">2</i>회차를 나누고 있어요</p>
-      <p class="wf-sub">한국사_요약노트 · 12,400자 · 보통 30초 안팎 걸려요</p>
-    </div>
-    <div class="wf-list"><i class="wf-n">3</i>
-      <div class="wf-card"><span class="wf-handle">⋮⋮</span><div><div class="wf-skel" style="width:50%"></div><div class="wf-skel" style="width:30%"></div></div><span></span></div>
-      <div class="wf-card"><span class="wf-handle">⋮⋮</span><div><div class="wf-skel" style="width:60%"></div><div class="wf-skel" style="width:25%"></div></div><span></span></div>
-    </div>
-    <div class="wf-foot"><span class="wf-btn ghost"><i class="wf-n">4</i>취소</span></div>
-  </div>
-</div>
-<p class="wf-cap">추출이 끝나고 AI 응답을 기다리는 상태. 재요청(SEC-07·10)도 이 화면에서 이어집니다.</p>
+<a href="/ttadak-wiki/screens/re-3-1.png" target="_blank"><img src="/screens/re-3-1.png" alt="3.1 회차 나누는 중"></a>
+<p class="wf-cap">1920×1080 화면 설계서 보드. 이미지를 누르면 원본 크기로 열려요.</p>
 
-| 번호 | 요소 | 액션 | 상태 | 정책 |
-| --- | --- | --- | --- | --- |
-| 1 | 진행 단계 | 지금 단계 표시 | 글자 읽기 / 회차 나누기 / 회차 확인 | UPL-07, SEC-01 |
-| 2 | 안내 문구 | 자료 이름·글자 수·예상 대기 시간 표시 | 나누는 중 / 다시 나누는 중 | SEC-07 |
-| 3 | 목록 자리 | 회차 목록이 들어올 자리를 회색 막대로 표시 | — | — |
-| 4 | 취소 버튼 | 누르면 확인 후 자료 넣기 화면으로 돌아감(자료는 지움) | 활성 | — |
+| 번호 | 요소 | 종류 | 설명 |
+| --- | --- | --- | --- |
+| 1 | 진행 단계 | Stepper | 글자 읽기 → 회차 나누기 → 회차 확인 중 지금 단계를 표시합니다. |
+| 2 | 안내 문구 | Text | 자료 이름·글자 수·보통 걸리는 시간입니다. 재요청 중이면 "다시 나누고 있어요"로 바뀝니다. |
+| 3 | 목록 자리 | Skeleton | 회차 카드가 들어올 자리를 회색 막대로 표시합니다. → 완료되면 3.2 회차 확인, 실패하면 3.3 나누기 실패로 이동합니다. |
+| 4 | 취소 | Button | 상태: default, hover, pressed → 클릭할 경우 확인 모달 후 자료를 지우고 2.1 자료 넣기로 돌아갑니다. |
 
-## SCR-SEC-02 회차 확인
+- 관련 정책: UPL-07, SEC-01·07·10
 
-<div class="wf">
-  <div class="wf-bar"><b>따닥</b><span>내 자료</span><span class="sp"></span><span class="wf-dot"></span></div>
-  <div class="wf-body">
-    <div class="wf-steps"><span class="done">✓ 글자 읽기</span><span>—</span><span class="done">✓ 회차 나누기</span><span>—</span><span class="on">회차 확인</span></div>
-    <p class="wf-h"><i class="wf-n">1</i>AI가 회차 4개로 나눴어요</p>
-    <p class="wf-sub">순서와 내용을 확인하고, 필요하면 고쳐 주세요.</p>
-    <div class="wf-sum"><i class="wf-n">2</i><span>한국사_요약노트</span><span>12,400자</span><span>예상 1시간 50분</span></div>
-    <div class="wf-list"><i class="wf-n">3</i>
-      <div class="wf-card"><span class="wf-handle">⋮⋮</span><span class="t">1회차 · 선사 시대와 고조선</span><span class="wf-menu">⋯</span><span class="m">2,800자 · 약 25분 · "구석기 시대에는 뗀석기를 쓰고…"</span></div>
-      <div class="wf-card"><span class="wf-handle">⋮⋮</span><span class="t">2회차 · 삼국의 성립과 발전</span><span class="wf-menu">⋯</span><span class="m">3,600자 · 약 30분 · "고구려는 졸본에서 건국하여…"</span></div>
-      <div class="wf-card"><span class="wf-handle">⋮⋮</span><span class="t">3회차 · 통일 신라와 발해</span><span class="wf-menu">⋯</span><span class="m">3,100자 · 약 28분 · "신라는 당과 연합하여…"</span></div>
-      <div class="wf-card"><span class="wf-handle">⋮⋮</span><span class="t">4회차 · 고려의 정치와 사회</span><span class="wf-menu">⋯</span><span class="m">2,900자 · 약 27분 · "왕건은 송악을 도읍으로…"</span></div>
-    </div>
-    <div class="wf-foot"><span class="wf-btn ghost"><i class="wf-n">4</i>다시 나누기</span><span class="sp"></span><span class="wf-btn"><i class="wf-n">5</i>이 회차로 필사 시작</span></div>
-  </div>
-</div>
-<p class="wf-cap">AI 결과를 받은 직후. 회차 카드를 고치는 방법(⋮⋮·⋯의 동작)은 아래 SCR-SEC-03 시안 중 투표로 정합니다.</p>
+## 3.2 회차 확인 · SCR-SEC-02
 
-| 번호 | 요소 | 액션 | 상태 | 정책 |
-| --- | --- | --- | --- | --- |
-| 1 | 결과 제목 | 나눈 회차 수 표시. 1개면 SEC-08 문구 | 여러 개 / 1개 | SEC-01·08 |
-| 2 | 자료 요약 | 자료 이름, 전체 글자 수, 전체 예상 시간 | — | SEC-13 |
-| 3 | 회차 목록 | 회차마다 번호·제목·글자 수·예상 시간·첫 문장. 카드를 누르면 본문 미리 보기 | 기본 / 펼침 / 편집 중 | SEC-02·12·13·14 |
-| 4 | 다시 나누기 버튼 | 확인 후 AI에 다시 요청(고친 내용은 사라짐) | 활성 / 진행 중 | SEC-07 |
-| 5 | 필사 시작 버튼 | 누르면 회차 확정, 1회차 필사로 이동 | 활성 / 비활성(모든 회차를 뺐을 때) | SEC-03·14 |
+<a href="/ttadak-wiki/screens/re-3-2.png" target="_blank"><img src="/screens/re-3-2.png" alt="3.2 회차 확인"></a>
+<p class="wf-cap">1920×1080 화면 설계서 보드. 이미지를 누르면 원본 크기로 열려요.</p>
 
-## SCR-SEC-03 회차 조정 시안
+| 번호 | 요소 | 종류 | 설명 |
+| --- | --- | --- | --- |
+| 1 | 결과 제목 | Text | 나눈 회차 수를 보여 줍니다. 1개면 "자료가 짧아 1회차로 만들었어요"로 바뀝니다(SEC-08). |
+| 2 | 자료 요약 | Text | 자료 이름, 전체 글자 수, 전체 예상 시간입니다(SEC-13). |
+| 3 | 회차 목록 | Card List | 회차마다 번호·제목·글자 수·예상 시간·첫 문장입니다. 카드를 클릭하면 본문을 펼쳐 미리 봅니다. ⋮⋮·⋯의 동작은 3.2.A·B·C 시안 중 투표로 정합니다. 상태: default, expanded, editing |
+| 4 | 다시 나누기 | Button | 상태: default, hover, pressed, loading → 클릭할 경우 "고친 내용은 사라져요" 확인 모달 후 3.1로 이동합니다. |
+| 5 | 필사 시작 | Button | 모든 회차를 빼면 disabled 상태입니다. 상태: disabled, default, hover, pressed → 클릭할 경우 회차를 확정하고 4.2 따라 쓰기(1회차)로 이동합니다. |
+
+- 관련 정책: SEC-01·03·08·12·13
+
+## 3.2 회차 조정 시안 · SCR-SEC-03
 
 보편 패턴이 없는 경험이라 시안 3개를 두고 투표로 정합니다(SEC-04). 세 시안 모두 SCR-SEC-02 위에서 동작합니다.
 
-### 시안 A · 목록에서 고치기
+### 3.2.A 회차 조정 시안 A · 목록에서 고치기 · SCR-SEC-03
 
-<div class="wf">
-  <div class="wf-body">
-    <p class="wf-tip">끌어서 순서를 바꿀 수 있어요</p>
-    <div class="wf-list" style="margin-top:8px">
-      <div class="wf-card"><span class="wf-handle">⋮⋮</span><span class="t">1회차 · 선사 시대와 고조선</span><span class="wf-menu">⋯</span><span class="m">2,800자 · 약 25분</span></div>
-      <div class="wf-card drag"><span class="wf-handle"><i class="wf-n">1</i>⋮⋮</span><span class="t">3회차 · 통일 신라와 발해</span><span class="wf-menu">⋯</span><span class="m">끌어서 옮기는 중</span></div>
-      <div class="wf-card"><span class="wf-handle">⋮⋮</span><div class="wf-input" style="padding:4px 8px"><i class="wf-n">2</i>삼국의 성립과 발전|</div><span class="wf-pop"><span class="wf-menu"><i class="wf-n">3</i>⋯</span><span class="box"><div>다음 회차와 합치기</div><div>둘로 나누기</div><div>필사에서 빼기</div></span></span><span class="m">3,600자 · 약 30분</span></div>
-      <div class="wf-card out"><span class="wf-handle">⋮⋮</span><span class="t">4회차 · 고려의 정치와 사회</span><span class="wf-menu">되돌리기</span><span class="m"><i class="wf-n">4</i>필사에서 뺐어요</span></div>
-    </div>
-  </div>
-</div>
-<p class="wf-cap">회차 카드 단위로 고칩니다. '둘로 나누기'를 누르면 카드가 펼쳐지고 문단 사이를 눌러 나눌 위치를 고릅니다.</p>
+<a href="/ttadak-wiki/screens/re-3-2-A.png" target="_blank"><img src="/screens/re-3-2-A.png" alt="3.2.A 회차 조정 시안 A · 목록에서 고치기"></a>
+<p class="wf-cap">1920×1080 화면 설계서 보드. 이미지를 누르면 원본 크기로 열려요.</p>
 
-| 번호 | 요소 | 액션 | 상태 | 정책 |
-| --- | --- | --- | --- | --- |
-| 1 | 끌기 손잡이 | 카드를 끌어 순서 바꾸기. 놓으면 회차 번호 다시 매김 | 기본 / 끄는 중 | SEC-02·14 |
-| 2 | 제목 | 제목을 누르면 바로 수정(30자) | 보기 / 수정 중 | SEC-12 |
-| 3 | 더보기 메뉴 | 다음 회차와 합치기 / 둘로 나누기(문단 사이 선택) / 필사에서 빼기 | 닫힘 / 열림 | SEC-11·14 |
-| 4 | 뺀 회차 | 흐리게 남기고 '되돌리기' 표시 | 뺌 | SEC-14 |
+| 번호 | 요소 | 종류 | 설명 |
+| --- | --- | --- | --- |
+| 1 | 끌기 손잡이 | Drag Handle | 카드를 끌어 순서를 바꿉니다. 놓으면 회차 번호를 다시 매깁니다. 처음 1회만 말풍선으로 안내합니다. 상태: default, dragging |
+| 2 | 제목 | Inline Text Field | 제목을 클릭하면 바로 수정합니다(30자). 상태: default, editing |
+| 3 | 더보기 메뉴 | Menu | 다음 회차와 합치기 / 둘로 나누기 / 필사에서 빼기입니다. 둘로 나누기를 고르면 카드가 펼쳐지고 문단 사이를 클릭해 나눌 위치를 고릅니다. |
+| 4 | 뺀 회차 | Card | 흐리게 남기고 [되돌리기]를 노출합니다. |
 
-### 시안 B · 원문에서 나누는 선 옮기기
+- 레퍼런스: 뤼튼 PPT 초안 목차 선정(2025-06). 관련 정책: SEC-02·11·12·14
 
-<div class="wf">
-  <div class="wf-split">
-    <div class="wf-side"><i class="wf-n">1</i>
-      <div class="it">1회차 · 선사 시대와 고조선</div>
-      <div class="it on">2회차 · 삼국의 성립과 발전</div>
-      <div class="it">3회차 · 통일 신라와 발해</div>
-      <div class="it">4회차 · 고려의 정치와 사회</div>
-    </div>
-    <div class="wf-doc">
-      <p class="wf-para">…고조선은 8조법으로 사회 질서를 유지하였다.</p>
-      <div class="wf-cut"><i class="wf-n">2</i>2회차 · 삼국의 성립과 발전 ✎</div>
-      <p class="wf-para">고구려는 졸본에서 건국하여 국내성으로 도읍을 옮겼다…</p>
-      <div class="wf-cut ghost"><i class="wf-n">3</i>+ 여기서 나누기</div>
-      <p class="wf-para">백제는 한강 유역에서 성장하여…</p>
-      <p class="wf-para">신라는 6부의 연맹으로 출발하여…</p>
-      <div class="wf-cut">3회차 · 통일 신라와 발해 ✎ <span class="wf-muted">×</span></div>
-      <p class="wf-para">신라는 당과 연합하여 백제와 고구려를…</p>
-    </div>
-  </div>
-</div>
-<p class="wf-cap">원문 전체를 보며 회차 경계선을 직접 다룹니다. 왼쪽 목록은 순서 바꾸기와 이동용입니다.</p>
+### 3.2.B 회차 조정 시안 B · 원문에서 선 옮기기 · SCR-SEC-03
 
-| 번호 | 요소 | 액션 | 상태 | 정책 |
-| --- | --- | --- | --- | --- |
-| 1 | 회차 목록 | 누르면 원문의 해당 위치로 이동. 끌어서 순서 바꾸기 | 기본 / 선택됨 | SEC-02·14 |
-| 2 | 경계선 | 끌어서 다른 문단 사이로 옮기기(범위 조정). ✎ 제목 수정, × 지우기(앞 회차와 합치기) | 기본 / 끄는 중 | SEC-11·12·14 |
-| 3 | 나누기 자리 | 문단 사이에 마우스를 올리면 보이고, 누르면 새 경계선 생성 | 숨김 / 보임 | SEC-11·14 |
+<a href="/ttadak-wiki/screens/re-3-2-B.png" target="_blank"><img src="/screens/re-3-2-B.png" alt="3.2.B 회차 조정 시안 B · 원문에서 선 옮기기"></a>
+<p class="wf-cap">1920×1080 화면 설계서 보드. 이미지를 누르면 원본 크기로 열려요.</p>
 
-### 시안 C · 회차 수를 정해 다시 나누기
+| 번호 | 요소 | 종류 | 설명 |
+| --- | --- | --- | --- |
+| 1 | 회차 목록 | Side List | 클릭하면 원문의 해당 위치로 이동합니다. 끌어서 순서를 바꿉니다. 상태: default, selected |
+| 2 | 경계선 | Divider Handle | 끌어서 다른 문단 사이로 옮겨 범위를 조정합니다. ✎ 제목 수정, × 경계선 지우기(앞 회차와 합치기). 상태: default, dragging |
+| 3 | 나누기 자리 | Hover Action | 문단 사이에 마우스를 올리면 노출됩니다. 클릭하면 새 경계선을 만듭니다. |
 
-<div class="wf">
-  <div class="wf-body">
-    <div style="display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:12px"><span class="wf-label" style="margin:0"><i class="wf-n">1</i>회차 수</span><span class="wf-seg"><span>자동</span><span>2</span><span>3</span><span class="on">4</span><span>5</span><span>6</span></span><span class="wf-btn sm ghost"><i class="wf-n">2</i>이대로 다시 나누기</span></div>
-    <div class="wf-list">
-      <div class="wf-card"><span class="wf-handle">⋮⋮</span><span class="t">1회차 · 선사 시대와 고조선</span><span class="wf-menu">✎</span><span class="m">2,800자 · 약 25분</span></div>
-      <div class="wf-card"><span class="wf-handle">⋮⋮</span><span class="t">2회차 · 삼국의 성립과 발전</span><span class="wf-menu"><i class="wf-n">3</i>✎</span><span class="m">3,600자 · 약 30분</span></div>
-      <div class="wf-card"><span class="wf-handle">⋮⋮</span><span class="t">3회차 · 통일 신라와 발해</span><span class="wf-menu">✎</span><span class="m">3,100자 · 약 28분</span></div>
-    </div>
-  </div>
-</div>
-<p class="wf-cap">범위는 직접 고치지 않고 회차 수를 바꿔 AI에 다시 맡깁니다. 순서 끌기와 제목 수정만 직접 합니다.</p>
+- 레퍼런스: 클래스101 커리큘럼(왼쪽 목록, 2026-02). 경계선 끌기는 같은 사례를 찾지 못했어요. 관련 정책: SEC-02·11·12·14
 
-| 번호 | 요소 | 액션 | 상태 | 정책 |
-| --- | --- | --- | --- | --- |
-| 1 | 회차 수 선택 | 자동 / 2–[최대: ?]개 중 고르기 | 자동(기본) / 숫자 선택 | SEC-14·16 |
-| 2 | 다시 나누기 버튼 | 고른 회차 수로 AI에 다시 요청 → SCR-SEC-01 | 비활성(바꾼 것 없음) / 활성 | SEC-07 |
-| 3 | 제목 수정 | 누르면 제목 수정 | 보기 / 수정 중 | SEC-12 |
+### 3.2.C 회차 조정 시안 C · 회차 수로 다시 나누기 · SCR-SEC-03
+
+<a href="/ttadak-wiki/screens/re-3-2-C.png" target="_blank"><img src="/screens/re-3-2-C.png" alt="3.2.C 회차 조정 시안 C · 회차 수로 다시 나누기"></a>
+<p class="wf-cap">1920×1080 화면 설계서 보드. 이미지를 누르면 원본 크기로 열려요.</p>
+
+| 번호 | 요소 | 종류 | 설명 |
+| --- | --- | --- | --- |
+| 1 | 회차 수 선택 | Segmented Control | 자동 / 2–[최대: ?]개 중 고릅니다. 진입 시 AI가 정한 수가 선택된 상태입니다. 상태: default, selected |
+| 2 | 다시 나누기 | Button | 회차 수를 바꾸기 전에는 disabled 상태입니다. → 클릭할 경우 고른 회차 수로 3.1 회차 나누는 중으로 이동합니다. |
+| 3 | 제목 수정 | Icon Button | 범위는 직접 고치지 않고 순서 끌기와 제목 수정만 합니다. |
+
+- 레퍼런스: 뤼튼 PPT 초안 분량 선택(2025-06). 관련 정책: SEC-07·14·16
 
 ### 시안 비교
 
@@ -156,25 +98,18 @@
 
 공수: 작음 = 기존 목록에 버튼·조건만 더함, 중간 = 끌기·메뉴 등 상호작용을 새로 만듦, 큼 = 새 편집 화면 (PM 가설, 개발 확인 필요)
 
-## SCR-SEC-04 나누기 실패
+## 3.3 나누기 실패 · SCR-SEC-04
 
-<div class="wf">
-  <div class="wf-body">
-    <div class="wf-center">
-      <div class="wf-ico">!</div>
-      <p class="wf-h"><i class="wf-n">1</i>회차를 나누지 못했어요</p>
-      <p class="wf-sub">다시 나누거나, 나누지 않고 1회차로 시작할 수 있어요.</p>
-      <div style="display:flex;gap:8px"><span class="wf-btn ghost"><i class="wf-n">2</i>나누지 않고 시작</span><span class="wf-btn"><i class="wf-n">3</i>다시 나누기</span></div>
-    </div>
-  </div>
-</div>
-<p class="wf-cap">자동 재요청(1회)까지 실패한 경우.</p>
+<a href="/ttadak-wiki/screens/re-3-3.png" target="_blank"><img src="/screens/re-3-3.png" alt="3.3 나누기 실패"></a>
+<p class="wf-cap">1920×1080 화면 설계서 보드. 이미지를 누르면 원본 크기로 열려요.</p>
 
-| 번호 | 요소 | 액션 | 상태 | 정책 |
-| --- | --- | --- | --- | --- |
-| 1 | 실패 안내 | — | — | SEC-07 |
-| 2 | 나누지 않고 시작 | 자료 전체를 1회차로 만들고 SCR-SEC-02로 이동 | 활성 | SEC-07·08 |
-| 3 | 다시 나누기 | AI에 다시 요청 → SCR-SEC-01 | 활성 | SEC-07 |
+| 번호 | 요소 | 종류 | 설명 |
+| --- | --- | --- | --- |
+| 1 | 실패 안내 | Text | 자동 재요청(1회)까지 실패했을 때 노출합니다. |
+| 2 | 나누지 않고 시작 | Button | 상태: default, hover, pressed → 클릭할 경우 자료 전체를 1회차로 만들고 3.2 회차 확인으로 이동합니다. |
+| 3 | 다시 나누기 | Button | 상태: default, hover, pressed, loading → 클릭할 경우 3.1 회차 나누는 중으로 이동합니다. |
+
+- 관련 정책: SEC-07·08·09·10
 
 ## 애니메이션
 

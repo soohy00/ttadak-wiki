@@ -50,11 +50,13 @@ export default defineConfig({
       {
         text: '화면 설계서',
         items: [
-          { text: '자료 업로드', link: '/screens/upload' },
-          { text: '회차 구분', link: '/screens/session-split' },
-          { text: '필사', link: '/screens/transcription' },
-          { text: '퀴즈', link: '/screens/quiz' },
-          { text: '계정·설정', link: '/screens/account' },
+          { text: '0 진입·샘플 체험', link: '/screens/entry' },
+          { text: '1 홈 (내 자료)', link: '/screens/home' },
+          { text: '2 자료 넣기', link: '/screens/upload' },
+          { text: '3 회차 구분', link: '/screens/session-split' },
+          { text: '4 필사', link: '/screens/transcription' },
+          { text: '5 퀴즈', link: '/screens/quiz' },
+          { text: '0 계정·설정', link: '/screens/account' },
         ],
       },
       {
