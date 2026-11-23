@@ -27,20 +27,37 @@
   --vp-button-brand-active-bg: #d4d4d8;
 }
 
-/* wider reading column */
+/* layout: sidebar flush left, wide content for screen images */
+:root { --vp-layout-max-width: 100%; --vp-sidebar-width: 272px; }
 @media (min-width: 960px) {
-  .VPDoc:not(.has-sidebar) .content { max-width: 820px; }
-  .VPDoc.has-aside .content-container { max-width: 760px !important; }
+  .VPDoc.has-aside .content-container { max-width: 1040px !important; margin: 0 !important; }
+  .VPDoc .container { max-width: none !important; justify-content: flex-start !important; }
+  .VPDoc:not(.has-sidebar) .content { max-width: 980px; }
+  .VPDoc { padding: 40px 48px 96px !important; }
 }
+@media (min-width: 1280px) {
+  .VPDoc .aside { max-width: 220px; }
+}
+.VPSidebar .text, .VPSidebarItem .text { font-size: 14px !important; line-height: 22px !important; }
+.VPSidebarItem.level-0 > .item .text { font-weight: 700; }
+/* on-this-page outline: small */
+.VPDocAsideOutline .outline-title { font-size: 13px !important; font-weight: 700; color: var(--vp-c-text-1); }
+.VPDocAsideOutline .outline-link { font-size: 13px !important; line-height: 30px !important; color: var(--vp-c-text-2); }
+.VPDocAsideOutline .outline-link.active { color: var(--vp-c-text-1); font-weight: 600; }
 
 /* reading */
-.vp-doc { font-size: 16px; }
+.vp-doc { font-size: 15px; }
+.vp-doc h1 { font-size: 28px; line-height: 1.35; letter-spacing: -.4px; }
+.vp-doc h2 { font-size: 20px; margin-top: 44px; padding-top: 20px; letter-spacing: -.2px; }
+.vp-doc h3 { font-size: 16.5px; margin-top: 28px; }
+.vp-doc table { font-size: 14px; }
+.vp-doc td, .vp-doc th { padding: 8px 14px; }
 .vp-doc p, .vp-doc li { word-break: keep-all; line-height: 1.8; }
 .vp-doc td, .vp-doc th { word-break: keep-all; line-height: 1.6; vertical-align: top; }
 .vp-doc th { font-weight: 600; white-space: nowrap; }
 .vp-doc table { display: table; width: 100%; }
 .vp-doc a { text-decoration: underline; text-underline-offset: 3px; }
-.vp-doc h2 { margin-top: 48px; }
+
 
 /* policy list: "UPL-01  rule" */
 .vp-doc ul.policy, .vp-doc .policy ul { list-style: none; padding-left: 0; }
@@ -160,3 +177,20 @@
 .wf-row .m { grid-column: 1; font-size: 12px; color: var(--wf-2); display: flex; gap: 6px; flex-wrap: wrap; align-items: center; }
 .wf-big { font-size: 28px; font-weight: 800; }
 @media (max-width: 640px) { .wf-cols { grid-template-columns: 1fr; } .wf-sent { font-size: 17px; } }
+
+/* screen image + numbered list (guide style) */
+.vp-doc img.scr { width: 100%; border: 1px solid var(--vp-c-divider); border-radius: 10px; margin: 8px 0 0; }
+.vp-doc ol.mk-list { list-style: none; padding-left: 0; counter-reset: mk; margin: 16px 0; }
+.vp-doc ol.mk-list > li { counter-increment: mk; position: relative; padding-left: 38px; margin: 14px 0; line-height: 1.75; }
+.vp-doc ol.mk-list > li::before { content: counter(mk); position: absolute; left: 0; top: 2px; width: 24px; height: 24px; border-radius: 50%; background: var(--vp-c-default-soft); color: var(--vp-c-text-1); font-size: 12.5px; font-weight: 700; display: grid; place-items: center; }
+.vp-doc ol.mk-list .kind { font-family: var(--vp-font-family-mono); font-size: 11.5px; color: var(--vp-c-text-3); margin-left: 6px; }
+.vp-doc ol.mk-list ul { list-style: none; padding-left: 0; margin: 4px 0 0; }
+.vp-doc ol.mk-list ul li { position: relative; padding-left: 16px; margin: 3px 0; font-size: 14px; color: var(--vp-c-text-2); }
+.vp-doc ol.mk-list ul li::before { content: "–"; position: absolute; left: 0; color: var(--vp-c-text-3); }
+.vp-doc p.mk-note { font-size: 13px; color: var(--vp-c-text-3); }
+/* "이 페이지에서 할 일" box */
+.vp-doc .todo-box { background: var(--vp-c-bg-soft); border-radius: 10px; padding: 18px 24px 14px; margin: 8px 0 32px; }
+.vp-doc .todo-box .todo-title { font-size: 15px; font-weight: 700; margin: 0 0 6px; }
+.vp-doc .todo-box ol { margin: 0; padding-left: 20px; }
+.vp-doc .todo-box li { font-size: 14.5px; margin: 4px 0; line-height: 1.7; }
+.vp-doc .todo-box .todo-foot { font-size: 13px; color: var(--vp-c-text-2); margin: 10px 0 0; }

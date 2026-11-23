@@ -6,6 +6,12 @@
 <span>와이어프레임: 1920×1080 설계서 보드 (낮은 완성도, 2026-11-23)</span>
 </div>
 
+<div class="todo-box">
+<p class="todo-title">이 페이지에서 할 일</p>
+<ol><li>(전원) 빈칸 입력 시안 A·B·C, 백지 입력 시안 A·B 중 하나씩 골라 주세요.</li><li>(FE) 입력 비교와 한글 조합 처리(TRN-09)가 구현 가능한지 확인해 주세요.</li><li>(PD) 집중 모드 화면 구성과 오타 표시를 확인해 주세요.</li></ol>
+<p class="todo-foot">확인한 뒤 <a href="https://github.com/soohy00/ttadak-wiki/issues/new?title=%5B%ED%95%84%EC%82%AC%20%ED%99%94%EB%A9%B4%5D%20" target="_blank">의견 남기기</a>로 남겨 주세요. 질문·피드백 방법은 4차 회의에서 확정해요.</p>
+</div>
+
 ## 사용자 흐름
 
 1. 회차 목록에서 회차와 단계를 고른다. 하던 단계가 있으면 이어서 한다. (TRN-11·12)
@@ -19,32 +25,32 @@
 
 ## 4.1 회차 목록 · 진행 · SCR-TRN-01
 
-<a href="/ttadak-wiki/screens/re-4-1.png" target="_blank"><img src="/screens/re-4-1.png" alt="4.1 회차 목록 · 진행"></a>
-<p class="wf-cap">1920×1080 화면 설계서 보드. 이미지를 누르면 원본 크기로 열려요.</p>
+<a href="/ttadak-wiki/screens/scr-re-4-1.png" target="_blank"><img class="scr" src="/screens/scr-re-4-1.png" alt="화면 4-1"></a>
+<p class="wf-cap">1920×1080 화면. 번호별 설명은 아래에 있어요. 이미지를 누르면 크게 열려요.</p>
 
-| 번호 | 요소 | 종류 | 설명 |
-| --- | --- | --- | --- |
-| 1 | 자료 이름·요약 | Text | 회차 수, 글자 수, 완료한 회차 수입니다. |
-| 2 | 회차 줄 | List Item | 회차 제목과 단계 칩 3개입니다. 칩을 클릭하면 그 단계로 바로 갑니다(잠금 없음, TRN-11). 칩 상태: 시작 전, 진행 중(문장 위치), 완료 |
-| 3 | 회차 버튼 | Button | 진행 상태에 따라 시작 / 이어서 하기 / 다시 하기로 바뀝니다. → 클릭할 경우 4.2 따라 쓰기(이어서 하기는 마지막 문장부터, TRN-12)로 이동합니다. |
+<ol class="mk-list">
+<li><b>자료 이름·요약</b><span class="kind">Text</span>: 회차 수, 글자 수, 완료한 회차 수입니다.</li>
+<li><b>회차 줄</b><span class="kind">List Item</span>: 회차 제목과 단계 칩 3개입니다. 칩을 클릭하면 그 단계로 바로 갑니다(잠금 없음, TRN-11).<ul><li>칩 상태: 시작 전, 진행 중(문장 위치), 완료</li></ul></li>
+<li><b>회차 버튼</b><span class="kind">Button</span>: 진행 상태에 따라 시작 / 이어서 하기 / 다시 하기로 바뀝니다.<ul><li>→ 클릭할 경우 4.2 따라 쓰기(이어서 하기는 마지막 문장부터, TRN-12)로 이동합니다.</li></ul></li>
+</ol>
 
-- 관련 정책: TRN-05·11·12. 필사 화면에서 회차를 보여 주는 방식은 SEC-05와 함께 투표(TRN-19)
+<p class="mk-note">관련 정책: TRN-05·11·12. 필사 화면에서 회차를 보여 주는 방식은 SEC-05와 함께 투표(TRN-19)</p>
 
 ## 4.2 따라 쓰기 · SCR-TRN-02
 
-<a href="/ttadak-wiki/screens/re-4-2.png" target="_blank"><img src="/screens/re-4-2.png" alt="4.2 따라 쓰기"></a>
-<p class="wf-cap">1920×1080 화면 설계서 보드. 이미지를 누르면 원본 크기로 열려요.</p>
+<a href="/ttadak-wiki/screens/scr-re-4-2.png" target="_blank"><img class="scr" src="/screens/scr-re-4-2.png" alt="화면 4-2"></a>
+<p class="wf-cap">1920×1080 화면. 번호별 설명은 아래에 있어요. 이미지를 누르면 크게 열려요.</p>
 
-| 번호 | 요소 | 종류 | 설명 |
-| --- | --- | --- | --- |
-| 1 | 뒤로·회차 이름 | Button | 필사 전용 바입니다. 내비게이션은 보이지 않습니다. → 클릭할 경우 위치를 저장하고 4.1 회차 목록으로 이동합니다. |
-| 2 | 단계 칩 | Chip | 지금 단계를 표시합니다. 다른 칩을 클릭하면 확인 후 그 단계로 이동합니다. 상태: default, selected, done |
-| 3 | 문장 위치 | Text | 지금 문장 / 전체 문장과 진행 막대입니다. |
-| 4 | 원문 문장 | Text | 지금 문장 1개를 28px로, 위에 앞 문장을 흐리게 노출합니다(TRN-06). |
-| 5 | 입력 칸 | Text Field | 진입하면 바로 입력할 수 있습니다. 틀린 글자는 표시합니다(실제 화면은 빨간색). 한글 조합 중인 글자는 오타로 보지 않습니다(TRN-09). 상태: 입력 전, 입력 중, 오타, 일치 → 오타가 있는 채로 Enter를 누르면 입력 칸이 좌우로 흔들립니다(TRN-07). |
-| 6 | 키 안내 | Text | Enter 다음 문장, Shift+Enter 이전 문장입니다(TRN-10). |
+<ol class="mk-list">
+<li><b>뒤로·회차 이름</b><span class="kind">Button</span>: 필사 전용 바입니다. 내비게이션은 보이지 않습니다.<ul><li>→ 클릭할 경우 위치를 저장하고 4.1 회차 목록으로 이동합니다.</li></ul></li>
+<li><b>단계 칩</b><span class="kind">Chip</span>: 지금 단계를 표시합니다. 다른 칩을 클릭하면 확인 후 그 단계로 이동합니다.<ul><li>상태: default, selected, done</li></ul></li>
+<li><b>문장 위치</b><span class="kind">Text</span>: 지금 문장 / 전체 문장과 진행 막대입니다.</li>
+<li><b>원문 문장</b><span class="kind">Text</span>: 지금 문장 1개를 28px로, 위에 앞 문장을 흐리게 노출합니다(TRN-06).</li>
+<li><b>입력 칸</b><span class="kind">Text Field</span>: 진입하면 바로 입력할 수 있습니다. 틀린 글자는 표시합니다(실제 화면은 빨간색). 한글 조합 중인 글자는 오타로 보지 않습니다(TRN-09).<ul><li>상태: 입력 전, 입력 중, 오타, 일치</li><li>→ 오타가 있는 채로 Enter를 누르면 입력 칸이 좌우로 흔들립니다(TRN-07).</li></ul></li>
+<li><b>키 안내</b><span class="kind">Text</span>: Enter 다음 문장, Shift+Enter 이전 문장입니다(TRN-10).</li>
+</ol>
 
-- 관련 정책: TRN-06·07·08·09·10
+<p class="mk-note">관련 정책: TRN-06·07·08·09·10</p>
 
 ## 4.3 빈칸 입력 시안 · SCR-TRN-03
 
@@ -52,47 +58,47 @@
 
 ### 4.3.A 빈칸 시안 A · 빈칸 자리에 바로 입력 · SCR-TRN-03
 
-<a href="/ttadak-wiki/screens/re-4-3-A.png" target="_blank"><img src="/screens/re-4-3-A.png" alt="4.3.A 빈칸 시안 A · 빈칸 자리에 바로 입력"></a>
-<p class="wf-cap">1920×1080 화면 설계서 보드. 이미지를 누르면 원본 크기로 열려요.</p>
+<a href="/ttadak-wiki/screens/scr-re-4-3-A.png" target="_blank"><img class="scr" src="/screens/scr-re-4-3-A.png" alt="화면 4-3-A"></a>
+<p class="wf-cap">1920×1080 화면. 번호별 설명은 아래에 있어요. 이미지를 누르면 크게 열려요.</p>
 
-| 번호 | 요소 | 종류 | 설명 |
-| --- | --- | --- | --- |
-| 1 | 뒤로·회차 이름 | Button | 4.2와 같습니다. |
-| 2 | 단계 칩 | Chip | 4.2와 같습니다. |
-| 3 | 문장 위치 | Text | 4.2와 같습니다. |
-| 4 | 빈칸 | Inline Text Field | 문장 안 빈칸에 커서가 들어가 바로 입력합니다. 빈칸 하나를 맞히면 다음 빈칸으로 넘어갑니다. 상태: 비어 있음, 입력 중, 오타, 맞음 |
-| 5 | 키 안내 | Text | 모든 빈칸을 맞히면 Enter로 다음 문장입니다. |
+<ol class="mk-list">
+<li><b>뒤로·회차 이름</b><span class="kind">Button</span>: 4.2와 같습니다.</li>
+<li><b>단계 칩</b><span class="kind">Chip</span>: 4.2와 같습니다.</li>
+<li><b>문장 위치</b><span class="kind">Text</span>: 4.2와 같습니다.</li>
+<li><b>빈칸</b><span class="kind">Inline Text Field</span>: 문장 안 빈칸에 커서가 들어가 바로 입력합니다. 빈칸 하나를 맞히면 다음 빈칸으로 넘어갑니다.<ul><li>상태: 비어 있음, 입력 중, 오타, 맞음</li></ul></li>
+<li><b>키 안내</b><span class="kind">Text</span>: 모든 빈칸을 맞히면 Enter로 다음 문장입니다.</li>
+</ol>
 
-- 레퍼런스: 말해보카 어휘 학습(2026-03). 관련 정책: TRN-03·07·09·16
+<p class="mk-note">레퍼런스: 말해보카 어휘 학습(2026-03). 관련 정책: TRN-03·07·09·16</p>
 
 ### 4.3.B 빈칸 시안 B · 아래 칸에 빈칸 단어만 · SCR-TRN-03
 
-<a href="/ttadak-wiki/screens/re-4-3-B.png" target="_blank"><img src="/screens/re-4-3-B.png" alt="4.3.B 빈칸 시안 B · 아래 칸에 빈칸 단어만"></a>
-<p class="wf-cap">1920×1080 화면 설계서 보드. 이미지를 누르면 원본 크기로 열려요.</p>
+<a href="/ttadak-wiki/screens/scr-re-4-3-B.png" target="_blank"><img class="scr" src="/screens/scr-re-4-3-B.png" alt="화면 4-3-B"></a>
+<p class="wf-cap">1920×1080 화면. 번호별 설명은 아래에 있어요. 이미지를 누르면 크게 열려요.</p>
 
-| 번호 | 요소 | 종류 | 설명 |
-| --- | --- | --- | --- |
-| 1 | 뒤로·회차 이름 | Button | 4.2와 같습니다. |
-| 2 | 단계 칩 | Chip | 4.2와 같습니다. |
-| 3 | 문장 위치 | Text | 4.2와 같습니다. |
-| 4 | 지금 빈칸 | Highlight | 입력할 빈칸을 진하게 표시합니다. 맞히면 글자가 채워집니다. |
-| 5 | 입력 칸 | Text Field | 빈칸 어절만 입력하고 Enter로 확인합니다. 상태: 입력 중, 오타, 맞음 |
+<ol class="mk-list">
+<li><b>뒤로·회차 이름</b><span class="kind">Button</span>: 4.2와 같습니다.</li>
+<li><b>단계 칩</b><span class="kind">Chip</span>: 4.2와 같습니다.</li>
+<li><b>문장 위치</b><span class="kind">Text</span>: 4.2와 같습니다.</li>
+<li><b>지금 빈칸</b><span class="kind">Highlight</span>: 입력할 빈칸을 진하게 표시합니다. 맞히면 글자가 채워집니다.</li>
+<li><b>입력 칸</b><span class="kind">Text Field</span>: 빈칸 어절만 입력하고 Enter로 확인합니다.<ul><li>상태: 입력 중, 오타, 맞음</li></ul></li>
+</ol>
 
-- 레퍼런스: 망고톡 데일리 챌린지(2024-10). 관련 정책: TRN-03·07·09·16
+<p class="mk-note">레퍼런스: 망고톡 데일리 챌린지(2024-10). 관련 정책: TRN-03·07·09·16</p>
 
 ### 4.3.C 빈칸 시안 C · 문장 전체를 다시 · SCR-TRN-03
 
-<a href="/ttadak-wiki/screens/re-4-3-C.png" target="_blank"><img src="/screens/re-4-3-C.png" alt="4.3.C 빈칸 시안 C · 문장 전체를 다시"></a>
-<p class="wf-cap">1920×1080 화면 설계서 보드. 이미지를 누르면 원본 크기로 열려요.</p>
+<a href="/ttadak-wiki/screens/scr-re-4-3-C.png" target="_blank"><img class="scr" src="/screens/scr-re-4-3-C.png" alt="화면 4-3-C"></a>
+<p class="wf-cap">1920×1080 화면. 번호별 설명은 아래에 있어요. 이미지를 누르면 크게 열려요.</p>
 
-| 번호 | 요소 | 종류 | 설명 |
-| --- | --- | --- | --- |
-| 1 | 뒤로·회차 이름 | Button | 4.2와 같습니다. |
-| 2 | 단계 칩 | Chip | 4.2와 같습니다. |
-| 3 | 문장 위치 | Text | 4.2와 같습니다. |
-| 4 | 입력 칸 | Text Field | 문장 전체를 입력하고 빈칸 부분은 기억으로 채웁니다. 빈칸 자리에서 틀리면 오타로 표시합니다. 상태: 입력 중, 오타, 일치 |
+<ol class="mk-list">
+<li><b>뒤로·회차 이름</b><span class="kind">Button</span>: 4.2와 같습니다.</li>
+<li><b>단계 칩</b><span class="kind">Chip</span>: 4.2와 같습니다.</li>
+<li><b>문장 위치</b><span class="kind">Text</span>: 4.2와 같습니다.</li>
+<li><b>입력 칸</b><span class="kind">Text Field</span>: 문장 전체를 입력하고 빈칸 부분은 기억으로 채웁니다. 빈칸 자리에서 틀리면 오타로 표시합니다.<ul><li>상태: 입력 중, 오타, 일치</li></ul></li>
+</ol>
 
-- 레퍼런스: 같은 사례를 찾지 못했어요. 관련 정책: TRN-03·07·09·16
+<p class="mk-note">레퍼런스: 같은 사례를 찾지 못했어요. 관련 정책: TRN-03·07·09·16</p>
 
 ### 시안 비교
 
@@ -110,35 +116,35 @@
 
 ### 4.4.A 백지 시안 A · 문장 하나씩 · SCR-TRN-04
 
-<a href="/ttadak-wiki/screens/re-4-4-A.png" target="_blank"><img src="/screens/re-4-4-A.png" alt="4.4.A 백지 시안 A · 문장 하나씩"></a>
-<p class="wf-cap">1920×1080 화면 설계서 보드. 이미지를 누르면 원본 크기로 열려요.</p>
+<a href="/ttadak-wiki/screens/scr-re-4-4-A.png" target="_blank"><img class="scr" src="/screens/scr-re-4-4-A.png" alt="화면 4-4-A"></a>
+<p class="wf-cap">1920×1080 화면. 번호별 설명은 아래에 있어요. 이미지를 누르면 크게 열려요.</p>
 
-| 번호 | 요소 | 종류 | 설명 |
-| --- | --- | --- | --- |
-| 1 | 뒤로·회차 이름 | Button | 4.2와 같습니다. |
-| 2 | 단계 칩 | Chip | 4.2와 같습니다. |
-| 3 | 문장 위치 | Text | 4.2와 같습니다. |
-| 4 | 앞 문장 단서 | Text | 바로 앞 원문 문장을 흐리게 노출합니다. 첫 문장은 회차 제목을 단서로 씁니다. |
-| 5 | 입력 칸 | Text Field | 떠올린 문장을 입력합니다. 오타를 표시하지 않고 넘어갑니다(TRN-13). 상태: 입력 전, 입력 중 |
-| 6 | 건너뛰기 | Text Button | 빈 채로 다음 문장으로 넘어갑니다. 비교 화면에 "쓰지 않음"으로 표시합니다. → 마지막 문장을 마치면 4.5 백지 비교로 이동합니다. |
+<ol class="mk-list">
+<li><b>뒤로·회차 이름</b><span class="kind">Button</span>: 4.2와 같습니다.</li>
+<li><b>단계 칩</b><span class="kind">Chip</span>: 4.2와 같습니다.</li>
+<li><b>문장 위치</b><span class="kind">Text</span>: 4.2와 같습니다.</li>
+<li><b>앞 문장 단서</b><span class="kind">Text</span>: 바로 앞 원문 문장을 흐리게 노출합니다. 첫 문장은 회차 제목을 단서로 씁니다.</li>
+<li><b>입력 칸</b><span class="kind">Text Field</span>: 떠올린 문장을 입력합니다. 오타를 표시하지 않고 넘어갑니다(TRN-13).<ul><li>상태: 입력 전, 입력 중</li></ul></li>
+<li><b>건너뛰기</b><span class="kind">Text Button</span>: 빈 채로 다음 문장으로 넘어갑니다. 비교 화면에 "쓰지 않음"으로 표시합니다.<ul><li>→ 마지막 문장을 마치면 4.5 백지 비교로 이동합니다.</li></ul></li>
+</ol>
 
-- 관련 정책: TRN-12·13·14·17
+<p class="mk-note">관련 정책: TRN-12·13·14·17</p>
 
 ### 4.4.B 백지 시안 B · 회차 전체를 한 번에 · SCR-TRN-04
 
-<a href="/ttadak-wiki/screens/re-4-4-B.png" target="_blank"><img src="/screens/re-4-4-B.png" alt="4.4.B 백지 시안 B · 회차 전체를 한 번에"></a>
-<p class="wf-cap">1920×1080 화면 설계서 보드. 이미지를 누르면 원본 크기로 열려요.</p>
+<a href="/ttadak-wiki/screens/scr-re-4-4-B.png" target="_blank"><img class="scr" src="/screens/scr-re-4-4-B.png" alt="화면 4-4-B"></a>
+<p class="wf-cap">1920×1080 화면. 번호별 설명은 아래에 있어요. 이미지를 누르면 크게 열려요.</p>
 
-| 번호 | 요소 | 종류 | 설명 |
-| --- | --- | --- | --- |
-| 1 | 뒤로·회차 이름 | Button | 4.2와 같습니다. |
-| 2 | 단계 칩 | Chip | 4.2와 같습니다. |
-| 3 | 문장 위치 | Text | 이 시안에서는 문장 위치를 쓰지 않습니다. |
-| 4 | 안내 | Text | 회차 이름, 문장 수, 글자 수입니다. |
-| 5 | 큰 입력 칸 | Text Area | 자유롭게 입력합니다. 입력할 때마다 자동 저장합니다(TRN-12). 상태: 비어 있음, 입력 중 |
-| 6 | 비교하기 | Button | 입력 내용이 없으면 disabled 상태입니다. → 클릭할 경우 4.5 백지 비교로 이동합니다. |
+<ol class="mk-list">
+<li><b>뒤로·회차 이름</b><span class="kind">Button</span>: 4.2와 같습니다.</li>
+<li><b>단계 칩</b><span class="kind">Chip</span>: 4.2와 같습니다.</li>
+<li><b>문장 위치</b><span class="kind">Text</span>: 이 시안에서는 문장 위치를 쓰지 않습니다.</li>
+<li><b>안내</b><span class="kind">Text</span>: 회차 이름, 문장 수, 글자 수입니다.</li>
+<li><b>큰 입력 칸</b><span class="kind">Text Area</span>: 자유롭게 입력합니다. 입력할 때마다 자동 저장합니다(TRN-12).<ul><li>상태: 비어 있음, 입력 중</li></ul></li>
+<li><b>비교하기</b><span class="kind">Button</span>: 입력 내용이 없으면 disabled 상태입니다.<ul><li>→ 클릭할 경우 4.5 백지 비교로 이동합니다.</li></ul></li>
+</ol>
 
-- 관련 정책: TRN-12·13·14·17
+<p class="mk-note">관련 정책: TRN-12·13·14·17</p>
 
 ### 시안 비교
 
@@ -151,36 +157,36 @@
 
 ## 4.5 백지 비교 · SCR-TRN-05
 
-<a href="/ttadak-wiki/screens/re-4-5.png" target="_blank"><img src="/screens/re-4-5.png" alt="4.5 백지 비교"></a>
-<p class="wf-cap">1920×1080 화면 설계서 보드. 이미지를 누르면 원본 크기로 열려요.</p>
+<a href="/ttadak-wiki/screens/scr-re-4-5.png" target="_blank"><img class="scr" src="/screens/scr-re-4-5.png" alt="화면 4-5"></a>
+<p class="wf-cap">1920×1080 화면. 번호별 설명은 아래에 있어요. 이미지를 누르면 크게 열려요.</p>
 
-| 번호 | 요소 | 종류 | 설명 |
-| --- | --- | --- | --- |
-| 1 | 뒤로·회차 이름 | Button | 4.2와 같습니다. |
-| 2 | 단계 칩 | Chip | 세 단계 모두 완료로 표시합니다. |
-| 3 | 문장 위치 | Text | "완료"로 바뀝니다. |
-| 4 | 완료 제목 | Text | 점수·정답률은 보여 주지 않습니다(TRN-14). |
-| 5 | 나란히 비교 | Compare View | 왼쪽 입력, 오른쪽 원문입니다. 문장끼리 줄을 맞추고 다른 어절에 밑줄을 긋습니다. 한쪽을 스크롤하면 같이 움직입니다. |
-| 6 | 백지 다시 쓰기·회차 목록 | Button | 상태: default, hover, pressed → 백지 다시 쓰기는 4.4, 회차 목록은 4.1로 이동합니다. |
-| 7 | 퀴즈 풀기 | Button | 화면의 주 버튼입니다. → 클릭할 경우 5.1 퀴즈 풀기로 이동합니다(4차 회의 후 설계). |
+<ol class="mk-list">
+<li><b>뒤로·회차 이름</b><span class="kind">Button</span>: 4.2와 같습니다.</li>
+<li><b>단계 칩</b><span class="kind">Chip</span>: 세 단계 모두 완료로 표시합니다.</li>
+<li><b>문장 위치</b><span class="kind">Text</span>: "완료"로 바뀝니다.</li>
+<li><b>완료 제목</b><span class="kind">Text</span>: 점수·정답률은 보여 주지 않습니다(TRN-14).</li>
+<li><b>나란히 비교</b><span class="kind">Compare View</span>: 왼쪽 입력, 오른쪽 원문입니다. 문장끼리 줄을 맞추고 다른 어절에 밑줄을 긋습니다. 한쪽을 스크롤하면 같이 움직입니다.</li>
+<li><b>백지 다시 쓰기·회차 목록</b><span class="kind">Button</span>: 상태: default, hover, pressed<ul><li>→ 백지 다시 쓰기는 4.4, 회차 목록은 4.1로 이동합니다.</li></ul></li>
+<li><b>퀴즈 풀기</b><span class="kind">Button</span>: 화면의 주 버튼입니다.<ul><li>→ 클릭할 경우 5.1 퀴즈 풀기로 이동합니다(4차 회의 후 설계).</li></ul></li>
+</ol>
 
-- 관련 정책: TRN-04·14, QIZ-02
+<p class="mk-note">관련 정책: TRN-04·14, QIZ-02</p>
 
 ## 4.6 단계 완료 · SCR-TRN-06
 
-<a href="/ttadak-wiki/screens/re-4-6.png" target="_blank"><img src="/screens/re-4-6.png" alt="4.6 단계 완료"></a>
-<p class="wf-cap">1920×1080 화면 설계서 보드. 이미지를 누르면 원본 크기로 열려요.</p>
+<a href="/ttadak-wiki/screens/scr-re-4-6.png" target="_blank"><img class="scr" src="/screens/scr-re-4-6.png" alt="화면 4-6"></a>
+<p class="wf-cap">1920×1080 화면. 번호별 설명은 아래에 있어요. 이미지를 누르면 크게 열려요.</p>
 
-| 번호 | 요소 | 종류 | 설명 |
-| --- | --- | --- | --- |
-| 1 | 뒤로·회차 이름 | Button | 4.2와 같습니다. |
-| 2 | 단계 칩 | Chip | 4.2와 같습니다. |
-| 3 | 문장 위치 | Text | 마지막 문장까지 채워진 상태입니다. |
-| 4 | 결과 | Text | 회차 이름, 문장 수, 걸린 시간만 보여 줍니다. 점수·경험치·연속 기록은 없습니다(TRN-15). |
-| 5 | 다음 단계 안내 | Text | 따라 쓰기 → 빈칸, 빈칸 → 백지를 한 줄로 권합니다. 샘플 체험 중이면 로그인 버튼을 함께 노출합니다(0.2). |
-| 6 | 다음 단계 시작 | Button | 화면의 주 버튼입니다. → 클릭할 경우 다음 단계(4.3 또는 4.4)로 이동합니다. 백지를 마치면 이 화면 대신 4.5로 갑니다. |
+<ol class="mk-list">
+<li><b>뒤로·회차 이름</b><span class="kind">Button</span>: 4.2와 같습니다.</li>
+<li><b>단계 칩</b><span class="kind">Chip</span>: 4.2와 같습니다.</li>
+<li><b>문장 위치</b><span class="kind">Text</span>: 마지막 문장까지 채워진 상태입니다.</li>
+<li><b>결과</b><span class="kind">Text</span>: 회차 이름, 문장 수, 걸린 시간만 보여 줍니다. 점수·경험치·연속 기록은 없습니다(TRN-15).</li>
+<li><b>다음 단계 안내</b><span class="kind">Text</span>: 따라 쓰기 → 빈칸, 빈칸 → 백지를 한 줄로 권합니다. 샘플 체험 중이면 로그인 버튼을 함께 노출합니다(0.2).</li>
+<li><b>다음 단계 시작</b><span class="kind">Button</span>: 화면의 주 버튼입니다.<ul><li>→ 클릭할 경우 다음 단계(4.3 또는 4.4)로 이동합니다. 백지를 마치면 이 화면 대신 4.5로 갑니다.</li></ul></li>
+</ol>
 
-- 관련 정책: TRN-05·11·15
+<p class="mk-note">관련 정책: TRN-05·11·15</p>
 
 ## 애니메이션
 

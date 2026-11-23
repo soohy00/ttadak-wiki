@@ -65,7 +65,7 @@ export default defineConfig({
         items: [{ text: '회의별 결정', link: '/decisions/' }],
       },
     ],
-    outline: { level: [2, 3], label: '이 페이지' },
+    outline: { level: [2, 3], label: '이 페이지 목차' },
     docFooter: { prev: '이전', next: '다음' },
     lastUpdated: { text: '마지막 수정' },
     search: { provider: 'local' },

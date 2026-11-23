@@ -6,6 +6,12 @@
 <span>화면 번호: <a href="../guide/wireframe-standard#_6-화면-번호">화면 설계 기준</a></span>
 </div>
 
+<div class="todo-box">
+<p class="todo-title">이 페이지에서 할 일</p>
+<ol><li>(전원) 흐름에 빠진 화면이 없는지 확인해 주세요.</li><li>(전원) "흐름에서 정할 것" 5개에 의견을 남겨 주세요.</li></ol>
+<p class="todo-foot">확인한 뒤 <a href="https://github.com/soohy00/ttadak-wiki/issues/new?title=%5B%EC%A0%84%EC%B2%B4%20%ED%9D%90%EB%A6%84%C2%B7%ED%99%94%EB%A9%B4%20%EB%AA%A9%EB%A1%9D%5D%20" target="_blank">의견 남기기</a>로 남겨 주세요. 질문·피드백 방법은 4차 회의에서 확정해요.</p>
+</div>
+
 ## 전체 흐름도
 
 ![따닥 1사이클 전체 흐름도](/design/flow.png)

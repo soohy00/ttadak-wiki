@@ -6,6 +6,12 @@
 <span>근거: <a href="../decisions/">3차 회의</a></span>
 </div>
 
+<div class="todo-box">
+<p class="todo-title">이 페이지에서 할 일</p>
+<ol><li>(전원) 검토 중 TRN-03–05·08–15에 동의하는지 확인해 주세요.</li><li>(전원) TRN-16·17 입력 방식을 투표로 정해 주세요.</li><li>(전원) TRN-18 비울 어절 고르는 법에 의견을 남겨 주세요.</li></ol>
+<p class="todo-foot">확인한 뒤 <a href="https://github.com/soohy00/ttadak-wiki/issues/new?title=%5BTRN%20%ED%95%84%EC%82%AC%20%EC%A0%95%EC%B1%85%5D%20" target="_blank">의견 남기기</a>로 남겨 주세요. 질문·피드백 방법은 4차 회의에서 확정해요.</p>
+</div>
+
 ## 목적
 
 회차 하나를 웹에서 타자로 필사하며 외우게 합니다. 손 필사보다 빠르게 범위 전체를 반복하고, 단계를 올릴수록 원문을 덜 보여 주어 마지막에 스스로 점검하게 합니다.

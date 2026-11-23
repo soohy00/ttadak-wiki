@@ -6,6 +6,12 @@
 <span>근거: <a href="../decisions/">3차 회의</a></span>
 </div>
 
+<div class="todo-box">
+<p class="todo-title">이 페이지에서 할 일</p>
+<ol><li>(전원) 검토 중 SEC-03·07–15에 동의하는지 확인해 주세요.</li><li>(전원) SEC-04 회차 조정 방법을 투표로 정해 주세요.</li><li>(BE) SEC-16 회차 기본 분량과 AI 응답 대기 시간(SEC-07)을 정해 주세요.</li></ol>
+<p class="todo-foot">확인한 뒤 <a href="https://github.com/soohy00/ttadak-wiki/issues/new?title=%5BSEC%20%ED%9A%8C%EC%B0%A8%20%EA%B5%AC%EB%B6%84%20%EC%A0%95%EC%B1%85%5D%20" target="_blank">의견 남기기</a>로 남겨 주세요. 질문·피드백 방법은 4차 회의에서 확정해요.</p>
+</div>
+
 ## 목적
 
 업로드한 자료를 한 번에 공부할 단위(회차)로 나눕니다. 무엇을 어떤 순서로 외울지 정리하는 시간을 줄이고, 사용자가 바로 필사를 시작하게 합니다.

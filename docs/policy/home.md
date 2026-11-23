@@ -6,6 +6,12 @@
 <span>근거: 1920 와이어프레임 작성 중 정리 (2026-11-23)</span>
 </div>
 
+<div class="todo-box">
+<p class="todo-title">이 페이지에서 할 일</p>
+<ol><li>(전원) 검토 중 HOM-01–06에 동의하는지 확인해 주세요.</li><li>(전원) 미결정 HOM-07–10에 의견을 남겨 주세요.</li></ol>
+<p class="todo-foot">확인한 뒤 <a href="https://github.com/soohy00/ttadak-wiki/issues/new?title=%5BHOM%20%EB%82%B4%20%EC%9E%90%EB%A3%8C%28%ED%99%88%29%20%EC%A0%95%EC%B1%85%5D%20" target="_blank">의견 남기기</a>로 남겨 주세요. 질문·피드백 방법은 4차 회의에서 확정해요.</p>
+</div>
+
 ## 목적
 
 로그인한 사용자가 처음 보는 화면이자, 다시 왔을 때 하던 필사를 이어서 하는 입구입니다. 자료마다 어디까지 했는지 보여 주고, 자료가 없으면 자료 넣기로 안내합니다.

@@ -6,6 +6,12 @@
 <span>근거: <a href="../decisions/">3차 회의</a></span>
 </div>
 
+<div class="todo-box">
+<p class="todo-title">이 페이지에서 할 일</p>
+<ol><li>(전원) UPL-06 수정(PPT·hwp 안내는 올렸을 때만)을 확인해 주세요.</li><li>(전원) 검토 중 UPL-05–14에 동의하는지 확인해 주세요.</li><li>(FE·BE) UPL-15 최대 글자 수를 AI 모델과 함께 정해 주세요.</li></ol>
+<p class="todo-foot">확인한 뒤 <a href="https://github.com/soohy00/ttadak-wiki/issues/new?title=%5BUPL%20%EC%9E%90%EB%A3%8C%20%EC%97%85%EB%A1%9C%EB%93%9C%20%EC%A0%95%EC%B1%85%5D%20" target="_blank">의견 남기기</a>로 남겨 주세요. 질문·피드백 방법은 4차 회의에서 확정해요.</p>
+</div>
+
 ## 목적
 
 사용자가 외울 자료를 따닥에 넣는 단계입니다. 1사이클은 업로드한 자료에서 **필사할 텍스트를 얼마나 정확히 뽑아내는지** 검증하는 데 집중하므로, 글자로 된 자료만 받습니다.
