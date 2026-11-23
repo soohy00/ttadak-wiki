@@ -2,7 +2,7 @@
 
 <div class="doc-info">
 <span>화면 ID: SCR-HOM</span>
-<span>정책: <a href="../policy/transcription">TRN 필사 정책</a> (TRN-05·12)</span>
+<span>정책: <a href="../policy/home">HOM 내 자료(홈) 정책</a>, TRN-05·12</span>
 <span>와이어프레임: 1920×1080 설계서 보드 (낮은 완성도, 2026-11-23)</span>
 </div>
 
@@ -40,5 +40,5 @@
 
 ## 정할 것
 
-- 새 규칙(검토 중): 자료 이름 바꾸기·삭제, 최근 학습 순 정렬
-- 내비게이션 형태(상단 / 사이드바) → 4차 회의 투표
+- 자료 이름 바꾸기·삭제, 최근 학습 순 정렬 → [HOM 정책서](../policy/home) HOM-02·04·05 (검토 중)
+- 자료 개수 상한, 휴지통, 내비게이션 형태 → HOM-07–10 (미결정)

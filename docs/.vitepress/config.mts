@@ -40,6 +40,7 @@ export default defineConfig({
       {
         text: '정책서',
         items: [
+          { text: 'HOM 내 자료(홈)', link: '/policy/home' },
           { text: 'UPL 자료 업로드', link: '/policy/upload' },
           { text: 'SEC 회차 구분', link: '/policy/session-split' },
           { text: 'TRN 필사', link: '/policy/transcription' },
