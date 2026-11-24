@@ -9,7 +9,7 @@
 <div class="todo-box">
 <p class="todo-title">이 페이지에서 할 일</p>
 <ol><li>(전원) 회차 조정 시안 A·B·C 중 하나를 골라 주세요.</li><li>(FE·BE) 3.1 대기와 자동 재요청 흐름이 구현 가능한지 확인해 주세요.</li><li>(PD) 회차 카드에 보여 주는 정보를 확인해 주세요.</li></ol>
-<p class="todo-foot">확인한 뒤 <a href="https://github.com/soohy00/ttadak-wiki/issues/new?title=%5B%ED%9A%8C%EC%B0%A8%20%EA%B5%AC%EB%B6%84%20%ED%99%94%EB%A9%B4%5D%20" target="_blank">의견 남기기</a>로 남겨 주세요. 질문·피드백 방법은 4차 회의에서 확정해요.</p>
+<p class="todo-foot">확인한 뒤 페이지 맨 아래 <a href="#comments">댓글</a>로 남겨 주세요(GitHub 로그인).</p>
 </div>
 
 ## 사용자 흐름

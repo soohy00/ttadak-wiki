@@ -30,8 +30,8 @@
 
 ## 질문·피드백
 
-- 방법은 4차 회의(11/24(화))에서 정합니다.
-- 그 전까지는 [GitHub 이슈](https://github.com/soohy00/ttadak-wiki/issues)에 정책 번호와 함께 남겨 주세요.
+- 페이지마다 맨 아래 댓글 창에 남겨 주세요. GitHub 계정으로 로그인하면 쓸 수 있어요.
+- 정책 번호(예: UPL-03)를 함께 적어 주세요. 댓글은 저장소 [Discussions](https://github.com/soohy00/ttadak-wiki/discussions)에도 모입니다.
 
 ## 기준 문서
 

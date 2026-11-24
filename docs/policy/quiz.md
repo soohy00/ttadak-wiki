@@ -9,7 +9,7 @@
 <div class="todo-box">
 <p class="todo-title">이 페이지에서 할 일</p>
 <ol><li>(전원) QIZ-03 퀴즈 1사이클 범위를 4차 회의에서 정해 주세요.</li><li>(전원) QIZ-04 문제 형식 시안에 의견을 남겨 주세요.</li></ol>
-<p class="todo-foot">확인한 뒤 <a href="https://github.com/soohy00/ttadak-wiki/issues/new?title=%5BQIZ%20%ED%80%B4%EC%A6%88%20%EC%A0%95%EC%B1%85%5D%20" target="_blank">의견 남기기</a>로 남겨 주세요. 질문·피드백 방법은 4차 회의에서 확정해요.</p>
+<p class="todo-foot">확인한 뒤 페이지 맨 아래 <a href="#comments">댓글</a>로 남겨 주세요(GitHub 로그인).</p>
 </div>
 
 ## 목적

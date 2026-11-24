@@ -9,7 +9,7 @@
 <div class="todo-box">
 <p class="todo-title">이 페이지에서 할 일</p>
 <ol><li>(전원) 자료 카드에 보여 주는 정보(회차 수, 진행, 최근 학습)가 충분한지 확인해 주세요.</li><li>(FE) 처리 중인 자료 카드가 일반 카드로 바뀌는 흐름이 구현 가능한지 확인해 주세요.</li><li>(PD) 빈 화면(1.1.2) 구성을 확인해 주세요.</li></ol>
-<p class="todo-foot">확인한 뒤 <a href="https://github.com/soohy00/ttadak-wiki/issues/new?title=%5B%ED%99%88%20%ED%99%94%EB%A9%B4%5D%20" target="_blank">의견 남기기</a>로 남겨 주세요. 질문·피드백 방법은 4차 회의에서 확정해요.</p>
+<p class="todo-foot">확인한 뒤 페이지 맨 아래 <a href="#comments">댓글</a>로 남겨 주세요(GitHub 로그인).</p>
 </div>
 
 ## 사용자 흐름

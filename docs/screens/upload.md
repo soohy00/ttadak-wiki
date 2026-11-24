@@ -9,7 +9,7 @@
 <div class="todo-box">
 <p class="todo-title">이 페이지에서 할 일</p>
 <ol><li>(전원) 화면 문구가 필요한 것만 남았는지 확인해 주세요(화면 설계 기준 8. 화면 문구).</li><li>(PD) 세그먼트 탭과 업로드 영역 배치를 확인해 주세요.</li><li>(FE) 끌어다 놓기, 파일 검사, 여러 파일을 놓았을 때 처리가 구현 가능한지 확인해 주세요.</li><li>(전원) 2.2.2 오류 상황에 빠진 경우가 없는지 확인해 주세요.</li></ol>
-<p class="todo-foot">확인한 뒤 <a href="https://github.com/soohy00/ttadak-wiki/issues/new?title=%5B%EC%9E%90%EB%A3%8C%20%EC%97%85%EB%A1%9C%EB%93%9C%20%ED%99%94%EB%A9%B4%5D%20" target="_blank">의견 남기기</a>로 남겨 주세요. 질문·피드백 방법은 4차 회의에서 확정해요.</p>
+<p class="todo-foot">확인한 뒤 페이지 맨 아래 <a href="#comments">댓글</a>로 남겨 주세요(GitHub 로그인).</p>
 </div>
 
 ## 사용자 흐름

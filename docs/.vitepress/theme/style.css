@@ -194,3 +194,9 @@
 .vp-doc .todo-box ol { margin: 0; padding-left: 20px; }
 .vp-doc .todo-box li { font-size: 14.5px; margin: 4px 0; line-height: 1.7; }
 .vp-doc .todo-box .todo-foot { font-size: 13px; color: var(--vp-c-text-2); margin: 10px 0 0; }
+
+/* 페이지 맨 아래 댓글(Giscus) */
+.wiki-comments { margin-top: 56px; padding-top: 24px; border-top: 1px solid var(--vp-c-divider); }
+.wiki-comments-title { font-size: 18px; font-weight: 700; margin: 0 0 4px; border: 0; padding: 0; }
+.wiki-comments-sub { font-size: 13px; color: var(--vp-c-text-2); margin: 0 0 16px; }
+.wiki-comments-box { min-height: 120px; }
