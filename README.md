@@ -1,5 +1,8 @@
 # 따닥 위키
 
+> **이 위키는 팀 저장소로 옮겼습니다.** 원본: [DDD-Community/DDD_14_TTADAK › wiki/](https://github.com/DDD-Community/DDD_14_TTADAK/tree/main/wiki), 사이트: https://ddd-community.github.io/DDD_14_TTADAK/
+> 이 저장소는 옛 주소를 새 주소로 넘기는 페이지와, 위키 댓글(Discussions)을 위해 남겨 둡니다. 여기 `docs/`는 더 고치지 않습니다.
+
 따닥(DDD 14기 WEB 1팀)의 기획·정책 라이브 위키입니다. 개발과 디자인은 이 위키를 기준으로 진행합니다.
 
 - 사이트: https://soohy00.github.io/ttadak-wiki/

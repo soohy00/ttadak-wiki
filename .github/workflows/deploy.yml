@@ -1,5 +1,8 @@
 name: Deploy wiki
 
+# 위키는 DDD-Community/DDD_14_TTADAK 의 wiki/ 로 옮겼다.
+# 이 저장소는 옛 주소로 들어온 사람을 새 주소로 넘기는 페이지만 배포한다.
+# 새 위키의 댓글(Giscus)이 아직 이 저장소의 Discussions를 쓰므로 저장소를 보관(archive)하지 않는다.
 on:
   push:
     branches: [main]
@@ -19,17 +22,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
-      - uses: actions/setup-node@v4
-        with:
-          node-version: 22
-          cache: npm
-      - run: npm ci
-      - run: npm run build
       - uses: actions/upload-pages-artifact@v3
         with:
-          path: docs/.vitepress/dist
+          path: redirect
 
   deploy:
     needs: build
@@ -40,27 +35,3 @@ jobs:
     steps:
       - id: deployment
         uses: actions/deploy-pages@v4
-
-  # 배포가 끝나면 갱신 기록(changelog)에 새로 생긴 줄을 디스코드 채널에 알린다.
-  # 웹후크 주소는 저장소 비밀값 DISCORD_WEBHOOK_URL. 없거나 갱신 기록이 그대로면 건너뛴다.
-  notify:
-    needs: deploy
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
-      - name: 디스코드에 갱신 알림
-        env:
-          WEBHOOK: ${{ secrets.DISCORD_WEBHOOK_URL }}
-          BEFORE: ${{ github.event.before }}
-        run: |
-          if [ -z "$WEBHOOK" ]; then echo "DISCORD_WEBHOOK_URL 없음, 건너뜀"; exit 0; fi
-          BASE="$BEFORE"
-          if [ -z "$BASE" ] || ! git cat-file -e "$BASE" 2>/dev/null; then BASE=HEAD~1; fi
-          ROWS=$(git diff "$BASE" HEAD -- docs/guide/changelog.md | grep '^+| 20' | sed 's/^+//' || true)
-          if [ -z "$ROWS" ]; then echo "갱신 기록에 새 줄 없음, 건너뜀"; exit 0; fi
-          LIST=$(printf '%s\n' "$ROWS" | awk -F'|' '{d=$2; t=$3; gsub(/^ +| +$/,"",d); gsub(/^ +| +$/,"",t); print "• " d " — " t}')
-          MSG=$(printf '📚 **따닥 위키 갱신**\n%s\n🔗 https://soohy00.github.io/ttadak-wiki/guide/changelog' "$LIST")
-          jq -n --arg c "$MSG" '{username: "따닥 위키", content: ($c | .[0:1900])}' > payload.json
-          curl -sS -f -H "Content-Type: application/json" -d @payload.json "$WEBHOOK"
