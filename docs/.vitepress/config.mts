@@ -35,6 +35,7 @@ export default defineConfig({
           { text: '문제 정의·페르소나', link: '/product/problem' },
           { text: '세부 경험 결정 원칙', link: '/product/principles' },
           { text: '전체 흐름·화면 목록', link: '/product/flow' },
+          { text: '비즈니스 로직', link: '/product/logic' },
         ],
       },
       {
